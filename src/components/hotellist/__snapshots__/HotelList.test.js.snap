@@ -1,0 +1,808 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <HotelList
+    hotelList={
+        Array [
+            Object {
+              "availability": Array [
+                Object {
+                  "from": "10-10-2020",
+                  "to": "15-10-2020",
+                },
+                Object {
+                  "from": "25-10-2020",
+                  "to": "15-11-2020",
+                },
+                Object {
+                  "from": "10-12-2020",
+                  "to": "15-12-2020",
+                },
+              ],
+              "city": "dubai",
+              "name": "Media One Hotel",
+              "price": 102.2,
+            },
+            Object {
+              "availability": Array [
+                Object {
+                  "from": "10-10-2020",
+                  "to": "12-10-2020",
+                },
+                Object {
+                  "from": "25-10-2020",
+                  "to": "10-11-2020",
+                },
+                Object {
+                  "from": "05-12-2020",
+                  "to": "18-12-2020",
+                },
+              ],
+              "city": "cairo",
+              "name": "Rotana Hotel",
+              "price": 80.6,
+            },
+            Object {
+              "availability": Array [
+                Object {
+                  "from": "01-10-2020",
+                  "to": "12-10-2020",
+                },
+                Object {
+                  "from": "05-10-2020",
+                  "to": "10-11-2020",
+                },
+                Object {
+                  "from": "05-12-2020",
+                  "to": "28-12-2020",
+                },
+              ],
+              "city": "london",
+              "name": "Le Meridien",
+              "price": 89.6,
+            },
+            Object {
+              "availability": Array [
+                Object {
+                  "from": "04-10-2020",
+                  "to": "17-10-2020",
+                },
+                Object {
+                  "from": "16-10-2020",
+                  "to": "11-11-2020",
+                },
+                Object {
+                  "from": "01-12-2020",
+                  "to": "09-12-2020",
+                },
+              ],
+              "city": "paris",
+              "name": "Golden Tulip",
+              "price": 109.6,
+            },
+            Object {
+              "availability": Array [
+                Object {
+                  "from": "20-10-2020",
+                  "to": "28-10-2020",
+                },
+                Object {
+                  "from": "04-11-2020",
+                  "to": "20-11-2020",
+                },
+                Object {
+                  "from": "08-12-2020",
+                  "to": "24-12-2020",
+                },
+              ],
+              "city": "Vienna",
+              "name": "Novotel Hotel",
+              "price": 111,
+            },
+            Object {
+              "availability": Array [
+                Object {
+                  "from": "10-10-2020",
+                  "to": "19-10-2020",
+                },
+                Object {
+                  "from": "22-10-2020",
+                  "to": "22-11-2020",
+                },
+                Object {
+                  "from": "03-12-2020",
+                  "to": "20-12-2020",
+                },
+              ],
+              "city": "Manila",
+              "name": "Concorde Hotel",
+              "price": 79.4,
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Hotel
+          hotel={
+                    Object {
+                              "availability": Array [
+                                Object {
+                                  "from": "10-10-2020",
+                                  "to": "15-10-2020",
+                                },
+                                Object {
+                                  "from": "25-10-2020",
+                                  "to": "15-11-2020",
+                                },
+                                Object {
+                                  "from": "10-12-2020",
+                                  "to": "15-12-2020",
+                                },
+                              ],
+                              "city": "dubai",
+                              "name": "Media One Hotel",
+                              "price": 102.2,
+                            }
+          }
+/>,
+        <Hotel
+          hotel={
+                    Object {
+                              "availability": Array [
+                                Object {
+                                  "from": "10-10-2020",
+                                  "to": "12-10-2020",
+                                },
+                                Object {
+                                  "from": "25-10-2020",
+                                  "to": "10-11-2020",
+                                },
+                                Object {
+                                  "from": "05-12-2020",
+                                  "to": "18-12-2020",
+                                },
+                              ],
+                              "city": "cairo",
+                              "name": "Rotana Hotel",
+                              "price": 80.6,
+                            }
+          }
+/>,
+        <Hotel
+          hotel={
+                    Object {
+                              "availability": Array [
+                                Object {
+                                  "from": "01-10-2020",
+                                  "to": "12-10-2020",
+                                },
+                                Object {
+                                  "from": "05-10-2020",
+                                  "to": "10-11-2020",
+                                },
+                                Object {
+                                  "from": "05-12-2020",
+                                  "to": "28-12-2020",
+                                },
+                              ],
+                              "city": "london",
+                              "name": "Le Meridien",
+                              "price": 89.6,
+                            }
+          }
+/>,
+        <Hotel
+          hotel={
+                    Object {
+                              "availability": Array [
+                                Object {
+                                  "from": "04-10-2020",
+                                  "to": "17-10-2020",
+                                },
+                                Object {
+                                  "from": "16-10-2020",
+                                  "to": "11-11-2020",
+                                },
+                                Object {
+                                  "from": "01-12-2020",
+                                  "to": "09-12-2020",
+                                },
+                              ],
+                              "city": "paris",
+                              "name": "Golden Tulip",
+                              "price": 109.6,
+                            }
+          }
+/>,
+        <Hotel
+          hotel={
+                    Object {
+                              "availability": Array [
+                                Object {
+                                  "from": "20-10-2020",
+                                  "to": "28-10-2020",
+                                },
+                                Object {
+                                  "from": "04-11-2020",
+                                  "to": "20-11-2020",
+                                },
+                                Object {
+                                  "from": "08-12-2020",
+                                  "to": "24-12-2020",
+                                },
+                              ],
+                              "city": "Vienna",
+                              "name": "Novotel Hotel",
+                              "price": 111,
+                            }
+          }
+/>,
+        <Hotel
+          hotel={
+                    Object {
+                              "availability": Array [
+                                Object {
+                                  "from": "10-10-2020",
+                                  "to": "19-10-2020",
+                                },
+                                Object {
+                                  "from": "22-10-2020",
+                                  "to": "22-11-2020",
+                                },
+                                Object {
+                                  "from": "03-12-2020",
+                                  "to": "20-12-2020",
+                                },
+                              ],
+                              "city": "Manila",
+                              "name": "Concorde Hotel",
+                              "price": 79.4,
+                            }
+          }
+/>,
+      ],
+      "className": "card-list",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "dubai",
+        "nodeType": "class",
+        "props": Object {
+          "hotel": Object {
+            "availability": Array [
+              Object {
+                "from": "10-10-2020",
+                "to": "15-10-2020",
+              },
+              Object {
+                "from": "25-10-2020",
+                "to": "15-11-2020",
+              },
+              Object {
+                "from": "10-12-2020",
+                "to": "15-12-2020",
+              },
+            ],
+            "city": "dubai",
+            "name": "Media One Hotel",
+            "price": 102.2,
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "cairo",
+        "nodeType": "class",
+        "props": Object {
+          "hotel": Object {
+            "availability": Array [
+              Object {
+                "from": "10-10-2020",
+                "to": "12-10-2020",
+              },
+              Object {
+                "from": "25-10-2020",
+                "to": "10-11-2020",
+              },
+              Object {
+                "from": "05-12-2020",
+                "to": "18-12-2020",
+              },
+            ],
+            "city": "cairo",
+            "name": "Rotana Hotel",
+            "price": 80.6,
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "london",
+        "nodeType": "class",
+        "props": Object {
+          "hotel": Object {
+            "availability": Array [
+              Object {
+                "from": "01-10-2020",
+                "to": "12-10-2020",
+              },
+              Object {
+                "from": "05-10-2020",
+                "to": "10-11-2020",
+              },
+              Object {
+                "from": "05-12-2020",
+                "to": "28-12-2020",
+              },
+            ],
+            "city": "london",
+            "name": "Le Meridien",
+            "price": 89.6,
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "paris",
+        "nodeType": "class",
+        "props": Object {
+          "hotel": Object {
+            "availability": Array [
+              Object {
+                "from": "04-10-2020",
+                "to": "17-10-2020",
+              },
+              Object {
+                "from": "16-10-2020",
+                "to": "11-11-2020",
+              },
+              Object {
+                "from": "01-12-2020",
+                "to": "09-12-2020",
+              },
+            ],
+            "city": "paris",
+            "name": "Golden Tulip",
+            "price": 109.6,
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "Vienna",
+        "nodeType": "class",
+        "props": Object {
+          "hotel": Object {
+            "availability": Array [
+              Object {
+                "from": "20-10-2020",
+                "to": "28-10-2020",
+              },
+              Object {
+                "from": "04-11-2020",
+                "to": "20-11-2020",
+              },
+              Object {
+                "from": "08-12-2020",
+                "to": "24-12-2020",
+              },
+            ],
+            "city": "Vienna",
+            "name": "Novotel Hotel",
+            "price": 111,
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "Manila",
+        "nodeType": "class",
+        "props": Object {
+          "hotel": Object {
+            "availability": Array [
+              Object {
+                "from": "10-10-2020",
+                "to": "19-10-2020",
+              },
+              Object {
+                "from": "22-10-2020",
+                "to": "22-11-2020",
+              },
+              Object {
+                "from": "03-12-2020",
+                "to": "20-12-2020",
+              },
+            ],
+            "city": "Manila",
+            "name": "Concorde Hotel",
+            "price": 79.4,
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "ul",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Hotel
+            hotel={
+                        Object {
+                                    "availability": Array [
+                                      Object {
+                                        "from": "10-10-2020",
+                                        "to": "15-10-2020",
+                                      },
+                                      Object {
+                                        "from": "25-10-2020",
+                                        "to": "15-11-2020",
+                                      },
+                                      Object {
+                                        "from": "10-12-2020",
+                                        "to": "15-12-2020",
+                                      },
+                                    ],
+                                    "city": "dubai",
+                                    "name": "Media One Hotel",
+                                    "price": 102.2,
+                                  }
+            }
+/>,
+          <Hotel
+            hotel={
+                        Object {
+                                    "availability": Array [
+                                      Object {
+                                        "from": "10-10-2020",
+                                        "to": "12-10-2020",
+                                      },
+                                      Object {
+                                        "from": "25-10-2020",
+                                        "to": "10-11-2020",
+                                      },
+                                      Object {
+                                        "from": "05-12-2020",
+                                        "to": "18-12-2020",
+                                      },
+                                    ],
+                                    "city": "cairo",
+                                    "name": "Rotana Hotel",
+                                    "price": 80.6,
+                                  }
+            }
+/>,
+          <Hotel
+            hotel={
+                        Object {
+                                    "availability": Array [
+                                      Object {
+                                        "from": "01-10-2020",
+                                        "to": "12-10-2020",
+                                      },
+                                      Object {
+                                        "from": "05-10-2020",
+                                        "to": "10-11-2020",
+                                      },
+                                      Object {
+                                        "from": "05-12-2020",
+                                        "to": "28-12-2020",
+                                      },
+                                    ],
+                                    "city": "london",
+                                    "name": "Le Meridien",
+                                    "price": 89.6,
+                                  }
+            }
+/>,
+          <Hotel
+            hotel={
+                        Object {
+                                    "availability": Array [
+                                      Object {
+                                        "from": "04-10-2020",
+                                        "to": "17-10-2020",
+                                      },
+                                      Object {
+                                        "from": "16-10-2020",
+                                        "to": "11-11-2020",
+                                      },
+                                      Object {
+                                        "from": "01-12-2020",
+                                        "to": "09-12-2020",
+                                      },
+                                    ],
+                                    "city": "paris",
+                                    "name": "Golden Tulip",
+                                    "price": 109.6,
+                                  }
+            }
+/>,
+          <Hotel
+            hotel={
+                        Object {
+                                    "availability": Array [
+                                      Object {
+                                        "from": "20-10-2020",
+                                        "to": "28-10-2020",
+                                      },
+                                      Object {
+                                        "from": "04-11-2020",
+                                        "to": "20-11-2020",
+                                      },
+                                      Object {
+                                        "from": "08-12-2020",
+                                        "to": "24-12-2020",
+                                      },
+                                    ],
+                                    "city": "Vienna",
+                                    "name": "Novotel Hotel",
+                                    "price": 111,
+                                  }
+            }
+/>,
+          <Hotel
+            hotel={
+                        Object {
+                                    "availability": Array [
+                                      Object {
+                                        "from": "10-10-2020",
+                                        "to": "19-10-2020",
+                                      },
+                                      Object {
+                                        "from": "22-10-2020",
+                                        "to": "22-11-2020",
+                                      },
+                                      Object {
+                                        "from": "03-12-2020",
+                                        "to": "20-12-2020",
+                                      },
+                                    ],
+                                    "city": "Manila",
+                                    "name": "Concorde Hotel",
+                                    "price": 79.4,
+                                  }
+            }
+/>,
+        ],
+        "className": "card-list",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "dubai",
+          "nodeType": "class",
+          "props": Object {
+            "hotel": Object {
+              "availability": Array [
+                Object {
+                  "from": "10-10-2020",
+                  "to": "15-10-2020",
+                },
+                Object {
+                  "from": "25-10-2020",
+                  "to": "15-11-2020",
+                },
+                Object {
+                  "from": "10-12-2020",
+                  "to": "15-12-2020",
+                },
+              ],
+              "city": "dubai",
+              "name": "Media One Hotel",
+              "price": 102.2,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "cairo",
+          "nodeType": "class",
+          "props": Object {
+            "hotel": Object {
+              "availability": Array [
+                Object {
+                  "from": "10-10-2020",
+                  "to": "12-10-2020",
+                },
+                Object {
+                  "from": "25-10-2020",
+                  "to": "10-11-2020",
+                },
+                Object {
+                  "from": "05-12-2020",
+                  "to": "18-12-2020",
+                },
+              ],
+              "city": "cairo",
+              "name": "Rotana Hotel",
+              "price": 80.6,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "london",
+          "nodeType": "class",
+          "props": Object {
+            "hotel": Object {
+              "availability": Array [
+                Object {
+                  "from": "01-10-2020",
+                  "to": "12-10-2020",
+                },
+                Object {
+                  "from": "05-10-2020",
+                  "to": "10-11-2020",
+                },
+                Object {
+                  "from": "05-12-2020",
+                  "to": "28-12-2020",
+                },
+              ],
+              "city": "london",
+              "name": "Le Meridien",
+              "price": 89.6,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "paris",
+          "nodeType": "class",
+          "props": Object {
+            "hotel": Object {
+              "availability": Array [
+                Object {
+                  "from": "04-10-2020",
+                  "to": "17-10-2020",
+                },
+                Object {
+                  "from": "16-10-2020",
+                  "to": "11-11-2020",
+                },
+                Object {
+                  "from": "01-12-2020",
+                  "to": "09-12-2020",
+                },
+              ],
+              "city": "paris",
+              "name": "Golden Tulip",
+              "price": 109.6,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "Vienna",
+          "nodeType": "class",
+          "props": Object {
+            "hotel": Object {
+              "availability": Array [
+                Object {
+                  "from": "20-10-2020",
+                  "to": "28-10-2020",
+                },
+                Object {
+                  "from": "04-11-2020",
+                  "to": "20-11-2020",
+                },
+                Object {
+                  "from": "08-12-2020",
+                  "to": "24-12-2020",
+                },
+              ],
+              "city": "Vienna",
+              "name": "Novotel Hotel",
+              "price": 111,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "Manila",
+          "nodeType": "class",
+          "props": Object {
+            "hotel": Object {
+              "availability": Array [
+                Object {
+                  "from": "10-10-2020",
+                  "to": "19-10-2020",
+                },
+                Object {
+                  "from": "22-10-2020",
+                  "to": "22-11-2020",
+                },
+                Object {
+                  "from": "03-12-2020",
+                  "to": "20-12-2020",
+                },
+              ],
+              "city": "Manila",
+              "name": "Concorde Hotel",
+              "price": 79.4,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "ul",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;
