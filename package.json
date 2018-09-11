@@ -16,10 +16,11 @@
     "build": "npm run build-css && react-scripts build",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject",
     "format": "npm-run-all formatjs formatcss",
     "formatcss": "prettier --parser scss --write 'src/**/*.scss'",
     "formatjs": "prettier --write 'src/**/*.js'"
   }
+  
 }
