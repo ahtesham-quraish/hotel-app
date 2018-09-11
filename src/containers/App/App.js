@@ -10,9 +10,9 @@ class App extends Component {
       <div className="App">
       <Search/>
         <div className="content-holder">
-          <Sidebar/>
+          {/* <Sidebar/> */}
           <div id="content">
-            <SortRow/>
+            {/* <SortRow/> */}
             <Hotel />
           </div>
         </div>
