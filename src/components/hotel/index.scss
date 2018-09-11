@@ -1,0 +1,22 @@
+.card-list {
+    list-style: none;
+    margin: 0 -8px;
+    padding: 25px 0 0;
+    letter-spacing: -.32em;
+    li {
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 8px 25px;
+      width: calc(50% - 25px);
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    .info {
+      line-height: 25px;
+      display: block;
+      span {
+        font-weight: bold;
+      }
+    }
+  }

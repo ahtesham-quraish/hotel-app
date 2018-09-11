@@ -1,0 +1,39 @@
+.sort-row {
+    overflow: hidden;
+    padding: 0 0 15px;
+    border-bottom: 1px solid #ccc;
+    .title {
+      float: left;
+      font-size: 14px;
+      line-height: 25px;
+      font-weight: bold;
+      margin: 0 15px 0 0;
+    }
+  }
+  .btn-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    letter-spacing: -.32em;
+    li {
+      letter-spacing: normal;
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 0 0 25px;
+    }
+    a {
+      display: block;
+      height: 25px;
+      font-size: 12px;
+      line-height: 23px;
+      border: 1px solid #17a2b8;
+      color: #fff;
+      padding: 0 10px;
+      text-decoration: none;
+      background: #17a2b8;
+      &:hover {
+        background: rgba(#17a2b8, 0.8);
+      }
+    }
+  }

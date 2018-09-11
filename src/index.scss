@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+  font: 14px/20px 'Arial', sans-serif;
+}
+
+#root {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  * {
+    box-sizing: border-box;
+  }
+}
+.App {
+  padding: 15px;
+  max-width: 990px;
+  margin: 0 auto;
+}
+
+@import 'scss/vendors/normalize';
+
+@import 'scss/base/variables';
+@import 'scss/base/functions';
+@import 'scss/base/mixins';
+@import 'scss/base/helpers';
+@import 'scss/base/reset';
+@import 'scss/base/typography';
+@import 'scss/base/forms';
