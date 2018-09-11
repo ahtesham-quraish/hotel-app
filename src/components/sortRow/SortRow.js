@@ -7,8 +7,8 @@ export default class SortRow extends Component {
         <div className="sort-row">
             <span className="title">Total Nights: 5</span>
             <ul className="btn-list">
-                <li><a href="#">Sort by Name</a></li>
-                <li><a href="#">Sort by Price</a></li>
+                <li><a href="javascript:void(0)">Sort by Name</a></li>
+                <li><a href="javascript:void(0)">Sort by Price</a></li>
             </ul>
         </div>
     );
