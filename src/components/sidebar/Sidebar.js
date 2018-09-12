@@ -21,7 +21,7 @@ export default class Sidebar extends Component {
         <aside id="sidebar">
             <div id="sidebar">
                 <form action="#" className="search-hotel">
-                    <input type="search" value={hotelName} onChange={this.searchHotelNameStateHandler} placeholder="Search Hotel"/>
+                    <input id="searchText" type="search" value={hotelName} onChange={this.searchHotelNameStateHandler} placeholder="Search Hotel"/>
                     <button className="search-btn">Submit</button>
                     <label htmlFor="price">Price Filter</label>
                     <input type="range" value={priceRange} onChange={this.priceRangeHandler} id="price" name="cowbell" min="0" max="100"  step="2"/>

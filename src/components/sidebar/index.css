@@ -24,7 +24,9 @@
     height: 25px;
     background-size: cover;
     border: none;
-    border-radius: 50%; }
+    border-radius: 50%;
+    font-size: 0;
+    line-height: 0; }
   .search-hotel label {
     margin: 0 0 8px;
     font-size: 14px;

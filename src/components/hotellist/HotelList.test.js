@@ -32,3 +32,14 @@ test('render a document name', async () => {
     );
     expect(wrapper.hasClass('card-list')).toEqual(true);
 });
+
+
+
+// prepareDomeNode = async (method) => {
+    
+//     const hotelList = await fetchHotelList(); 
+//     const wrapper = method(
+//         <HotelList hotelList={hotelList.hotels} />
+//     );
+//     return wrapper;
+// }
