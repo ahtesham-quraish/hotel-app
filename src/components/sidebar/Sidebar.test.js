@@ -17,5 +17,10 @@ it('it simulate the search text OnChange', () => {
     wrapper.find('#searchText').simulate('change', event);
     expect(wrapper.state('hotelName')).toBe('A');
 });
+it('it simulate the search text OnChange', () => {
+    const wrapper = mount(<Sidebar />);
+    expect(wrapper.find('input').length).toEqual(2);
+
+});
 
   
