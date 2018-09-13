@@ -5,28 +5,31 @@ import SortRow from '../../components/sortRow/SortRow';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Search from '../../components/search/Search';
 import moment from 'moment';
-import axios from 'axios';
 import _ from 'underscore'
 import {validDates} from '../../utils/dataFilters';
 import {URL} from '../../uls';
+import request from '../../service';
 class App extends Component {
   constructor(props) { 
     super(props); 
     this.state = { 
         hotels: [],
-        hotelData : [] 
+        hotelData : [] ,
+        nights : 0,
     }; 
   }
   componentDidMount = () =>{
     this.fetchHotels(URL);
   }
   fetchHotels = async (URL) => {
-   await axios.get(URL)
-    .then(response => {
-      this.setState({hotels : response.data.hotels, hotelData : response.data.hotels})})
-    .catch(err => console.log("error happened"))
+    const hotels = await request(URL);
+    this.setState({hotels : hotels, hotelData : hotels});
   }
-
+  findHotelByName = (txt) => {
+    const hotels = this.state.hotelData;
+    let filteredHotels = hotels.filter(hotel => hotel.name === txt)
+    this.setState({hotels : filteredHotels});
+  }
   sortHotelhandler = (sortBYKey) =>{
     const hotels = this.state.hotels;
     let sortedArr  = _.sortBy(hotels, (o) => o[sortBYKey])
@@ -50,19 +53,19 @@ class App extends Component {
          hotel.price = hotel.price * nights;
          return yes.length > 0; 
       })
-     this.setState({hotels : filteredHotels});  
+     this.setState({hotels : filteredHotels, nights : nights});  
     }
     
   }
   render() {
-    const {hotels} = this.state;
+    const {hotels, nights} = this.state;
     return (
       <div className="App">
       <Search  searchHotelCallBack={this.searchHotel}/>
         <div className="content-holder">
-          <Sidebar  />
+          <Sidebar  findHotelByName={this.findHotelByName} />
           <div id="content">
-            <SortRow sortHotelhandler={this.sortHotelhandler}/>
+            <SortRow nights={nights} sortHotelhandler={this.sortHotelhandler}/>
             <HotelList hotelList={hotels} />
           </div>
         </div>

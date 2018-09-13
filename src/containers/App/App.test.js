@@ -9,7 +9,7 @@ import {URL} from '../../uls';
 import { validDates } from '../../utils/dataFilters';
 Enzyme.configure({ adapter: new Adapter() });
 
-it('renders without crashing', () => {
+it('renders without crashing', async () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
@@ -24,6 +24,8 @@ it('renders without crashing', async () => {
   wrapper.setState({hotels : hotelList.hotels, hotelData :  hotelList.hotels})
   wrapper.instance().searchHotel(moment(fromDate) , moment(endDate));
   expect(wrapper.state('hotels').length).toBe(1);
+  wrapper.unmount()
+  
 });
 
 
@@ -33,6 +35,7 @@ it('renders without crashing', async () => {
   wrapper.setState({hotels : hotelList.hotels, hotelData :  hotelList.hotels})
   wrapper.instance().sortHotelhandler('name');
   expect(wrapper.state('hotels')[0].name).toBe(hotelList.hotels[5].name);
+  wrapper.unmount()
 });
 it('renders without crashing', async () => { 
   const format="YYYY/MM/DD";
@@ -44,6 +47,16 @@ it('renders without crashing', async () => {
   const wrapper = mount(<App  />);
  await wrapper.instance().fetchHotels(URL);
   expect(wrapper.state('hotels').length).toBeGreaterThan(0);
+  wrapper.unmount()
 });
 
+
+it('renders without crashing', async () => {
+  const hotelList = await fetchHotelList();  
+  const wrapper = mount(<App  />);
+  wrapper.setState({hotels : hotelList.hotels, hotelData :  hotelList.hotels})
+  wrapper.instance().findHotelByName('Media One Hotel');
+  expect(wrapper.state('hotels').length).toBe(1);
+  wrapper.unmount()
+});
 

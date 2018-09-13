@@ -23,4 +23,15 @@ it('it simulate the search text OnChange', () => {
 
 });
 
+it('check the Click button handler ', () => {
+    const findHotelByName = jest.fn();
+    const props = {
+        findHotelByName
+    }
+    const wrapper = mount(<Sidebar {...props} />);
+    const button = wrapper.find('#searchByText') 
+    button.simulate('click');
+    expect(findHotelByName).toHaveBeenCalled();
+  });
+
   

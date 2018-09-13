@@ -24,12 +24,12 @@ export default class Sidebar extends Component {
     return (
         <aside id="sidebar">
             <div id="sidebar">
-                <form action="#" className="search-hotel">
+                {/* <form action="#" className="search-hotel"> */}
                     <input id="searchText" type="search" value={hotelName} onChange={this.searchHotelNameStateHandler} placeholder="Search Hotel"/>
-                    <button className="search-btn">Submit</button>
+                    <button id="searchByText" onClick={() => this.props.findHotelByName(this.state.hotelName)} className="search-btn">Submit</button>
                     <label htmlFor="price">Price Filter</label>
                     <Slider value={this.state.value} onChange={this.setValue} onAfterChange={this.update} />
-                </form>
+                {/* </form> */}
             </div>
         </aside>
     );
