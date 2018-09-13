@@ -19,7 +19,7 @@ it('it simulate the search text OnChange', () => {
 });
 it('it simulate the search text OnChange', () => {
     const wrapper = mount(<Sidebar />);
-    expect(wrapper.find('input').length).toEqual(2);
+    expect(wrapper.find('input').length).toEqual(1);
 
 });
 

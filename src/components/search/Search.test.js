@@ -7,37 +7,63 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 Enzyme.configure({ adapter: new Adapter() });
 
-// it('it simulate the startDate selection handlerrs', async () => {
-//     const startDateHandlerMock = jest.fn();
+// it('render date input correctly with empty value', () => {
+//   const props = {
+//        selected: null
+//       },
+//       DateInputComponent = mount(<DatePicker {...props} />);
+//     expect((DateInputComponent).prop('selected')).toEqual(null);
+// });
+
+it('check the StartDate State ', () => {
+  const  date = '2017-01-02';
+  const format="YYYY/MM/DD";
+  const startDateHandlerMock = jest.fn(),
+      wrapper = mount(<Search  />);
+      const input = wrapper.find('input').first();  
+      input.simulate('change', { target: {value: moment(date).format(format)} });
+      expect(wrapper.state('startDate').format(format)).toBe(moment(date).format(format));
+});
+
+it('check the endDate State ', () => {
+  const  date = '2018-01-02';
+  const format="YYYY/MM/DD";
+  const startDateHandlerMock = jest.fn(),
+      wrapper = mount(<Search  />);
+      const input = wrapper.find('input').last();  
+      input.simulate('change', { target: {value: moment(date).format(format)} });
+      expect(wrapper.state('endDate').format(format)).toBe(moment(date).format(format));
+});
+
+it('check the Click button handler ', () => {
+  const searchHotelCallBack = jest.fn();
+  const props = {
+    searchHotelCallBack
+  }
+  const wrapper = mount(<Search {...props} />);
+  const button = wrapper.find('#submit') 
+  button.simulate('click');
+  expect(searchHotelCallBack).toHaveBeenCalled();
+});
+
+
+
+// it('it simulate the startDate selection handlerrs', () => {
+//     const searchHotelHandler = jest.fn();
+//     const searchHotelCallBackMock = jest.fn();
 //     const event = {
-//       preventDefault() {},
 //       target: { value: 'A' }
 //     };
 //     let startDate =  moment();
-//     const wrapper = mount(<DatePicker  selected={startDate}
-//     onChange={startDateHandlerMock} />);
-//     wrapper.simulate('change', event);
-//     console.log("========", wrapper.find('input'))
-//     expect(startDateHandlerMock).toBeCalledWith('A');
-//     // expect(startDateHandlerMock).toHaveBeenCalled();
+//     const wrapper = mount(<Search  searchHotelCallBack={searchHotelCallBackMock} />);
+//     expect(wrapper.state('counter')).toBe(0);
+//     wrapper.find('button').simulate('click');
+//     expect(wrapper.state('counter')).toBe(1);
+//     //expect(searchHotelHandler.mock.calls.length).toEqual(1);
+//     //console.log(searchHotelHandler.mock.calls,"=================")
+//     //expect(searchHotelHandlerMock).toBeCalledWith('A');
+//     //expect(searchHotelHandlerMock).toHaveBeenCalled();
 // });
-
-it('it simulate the startDate selection handlerrs', () => {
-    const searchHotelHandler = jest.fn();
-    const searchHotelCallBackMock = jest.fn();
-    const event = {
-      target: { value: 'A' }
-    };
-    let startDate =  moment();
-    const wrapper = mount(<Search  searchHotelCallBack={searchHotelCallBackMock} />);
-    expect(wrapper.state('counter')).toBe(0);
-    wrapper.find('button').simulate('click');
-    expect(wrapper.state('counter')).toBe(1);
-    //expect(searchHotelHandler.mock.calls.length).toEqual(1);
-    //console.log(searchHotelHandler.mock.calls,"=================")
-    //expect(searchHotelHandlerMock).toBeCalledWith('A');
-    //expect(searchHotelHandlerMock).toHaveBeenCalled();
-});
 
 
 

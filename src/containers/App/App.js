@@ -6,6 +6,7 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import Search from '../../components/search/Search';
 import moment from 'moment';
 import axios from 'axios';
+import _ from 'underscore'
 import {validDates} from '../../utils/dataFilters';
 class App extends Component {
   constructor(props) { 
@@ -18,10 +19,19 @@ class App extends Component {
   componentDidMount = () =>{
     this.fetchHotels();
   }
+  startDateHandler = () =>{
+
+  }
   fetchHotels = () => {
     axios.get('https://api.myjson.com/bins/tl0bp')
-    .then(response => {this.setState({hotels : response.data.hotels, hotelData : response.data.hotels})})
+    .then(response => {
+      this.setState({hotels : response.data.hotels, hotelData : response.data.hotels})})
     .catch(err => console.log("error happened"))
+  }
+  sortHotelhandler = (sortBYKey) =>{
+    const hotels = this.state.hotelData;
+    let sortedArr  = _.sortBy(hotels, (o) => o[sortBYKey])
+    this.setState({hotels : sortedArr});
   }
   searchHotel = (startDate, endDate) =>{
     let filteredHotels = [];
@@ -49,11 +59,11 @@ class App extends Component {
     const {hotels} = this.state;
     return (
       <div className="App">
-      <Search searchHotelCallBack={this.searchHotel}/>
+      <Search  startDateHandler={this.startDateHandler} searchHotelCallBack={this.searchHotel}/>
         <div className="content-holder">
-          <Sidebar/>
+          <Sidebar  />
           <div id="content">
-            <SortRow/>
+            <SortRow sortHotelhandler={this.sortHotelhandler}/>
             <HotelList hotelList={hotels} />
           </div>
         </div>

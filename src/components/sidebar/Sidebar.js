@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
 import './index.css';
-
+import Slider from 'rc-slider'
+import 'rc-slider/assets/index.css';
 export default class Sidebar extends Component {
     constructor(props) { 
         super(props); 
         this.state = { 
             hotelName: '',
-            priceRange : 0
+            value : 10
         }; 
     }
+  setValue = (e) => {
+        this.setState({ value: e })
+  }
+  update = () => {
+		//this.props.update(this.state)
+  }  
   searchHotelNameStateHandler = (e) =>{
     this.setState({hotelName : e.target.value});
   }        
-  priceRangeHandler = () =>{
-
-  }
   render() {
-      const {hotelName, priceRange} = this.state;
+      const {hotelName} = this.state;
     return (
         <aside id="sidebar">
             <div id="sidebar">
@@ -24,7 +28,7 @@ export default class Sidebar extends Component {
                     <input id="searchText" type="search" value={hotelName} onChange={this.searchHotelNameStateHandler} placeholder="Search Hotel"/>
                     <button className="search-btn">Submit</button>
                     <label htmlFor="price">Price Filter</label>
-                    <input type="range" value={priceRange} onChange={this.priceRangeHandler} id="price" name="cowbell" min="0" max="100"  step="2"/>
+                    <Slider value={this.state.value} onChange={this.setValue} onAfterChange={this.update} />
                 </form>
             </div>
         </aside>

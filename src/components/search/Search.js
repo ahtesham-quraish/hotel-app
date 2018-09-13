@@ -8,10 +8,10 @@ export default class Search extends Component {
     constructor(props) { 
         super(props); 
         this.state = { 
-            fromDate: moment(),
-            endDate : moment(),
-            counter : 0,
+            startDate: moment(),
+            endDate : moment(),  
         }; 
+        this.format="YYYY/MM/DD";
   }
   startDateHandler = (date) =>{
     this.setState({
@@ -23,27 +23,26 @@ export default class Search extends Component {
         endDate: date
       });
   }
-  searchHotelHandler = () =>{
-    this.setState({counter : 1})  
-    this.props.searchHotelCallBack(this.state.startDate , this.state.endDate);
-  }
   render() {
+      const {startDate , endDate} = this.state;
     return (
         <form action="#" className="search-form">
             <div className="three-cols">
                 <div className="col">
                 <DatePicker
-                    selected={this.state.startDate}
+                    selected={startDate}
                     onChange={this.startDateHandler}
+                    dateFormat={this.format}
                 />
                 </div>
                 <div className="col">
                 <DatePicker
-                    selected={this.state.endDate}
+                    selected={endDate}
                     onChange={this.endDateHandler}
+                    dateFormat={this.format}
                 />
                 </div>
-                <button id="submit" onClick={(event) => {this.searchHotelHandler(event)}}  className="submit-btn">Submit</button>
+                <button id="submit" onClick={() => this.props.searchHotelCallBack(startDate , endDate)}  className="submit-btn">Submit</button>
             </div>
         </form>
     );
