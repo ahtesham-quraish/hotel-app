@@ -3,6 +3,7 @@ import './index.css';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import Button from '../button/Button';
 
 export default class Search extends Component {
     constructor(props) { 
@@ -42,7 +43,7 @@ export default class Search extends Component {
                     dateFormat={this.format}
                 />
                 </div>
-                <button id="submit" onClick={() => this.props.searchHotelCallBack(startDate , endDate)}  className="submit-btn">Submit</button>
+                <Button onClick={() => this.props.searchHotelCallBack(startDate , endDate)} classStyle={'btn-submit'} id={'submit'} text={'Submit'}/>
             </div>
         </form>
     );

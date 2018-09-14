@@ -41,51 +41,9 @@ it('check the Click button handler ', () => {
     searchHotelCallBack
   }
   const wrapper = mount(<Search {...props} />);
-  const button = wrapper.find('#submit') 
+  const button = wrapper.find('.btn-submit') 
   button.simulate('click');
   expect(searchHotelCallBack).toHaveBeenCalled();
 });
 
-
-
-// it('it simulate the startDate selection handlerrs', () => {
-//     const searchHotelHandler = jest.fn();
-//     const searchHotelCallBackMock = jest.fn();
-//     const event = {
-//       target: { value: 'A' }
-//     };
-//     let startDate =  moment();
-//     const wrapper = mount(<Search  searchHotelCallBack={searchHotelCallBackMock} />);
-//     expect(wrapper.state('counter')).toBe(0);
-//     wrapper.find('button').simulate('click');
-//     expect(wrapper.state('counter')).toBe(1);
-//     //expect(searchHotelHandler.mock.calls.length).toEqual(1);
-//     //console.log(searchHotelHandler.mock.calls,"=================")
-//     //expect(searchHotelHandlerMock).toBeCalledWith('A');
-//     //expect(searchHotelHandlerMock).toHaveBeenCalled();
-// });
-
-
-
-
-
-
-// export default class InputBox extends React.Component {
-//   onSearch(event) {
-//     event.preventDefault();
-//     this.props.onSearch(event.target.value.trim());
-//   }
-//   render () { return <input onChange={this.onSearch.bind(this)} />; }
-// }
-
-// it('should call onChange prop', () => {
-//     const onSearchMock = jest.fn();
-//     const event = {
-//       preventDefault() {},
-//       target: { value: 'the-value' }
-//     };
-//     const component = enzyme.shallow(<InputBox onSearch={onSearchMock} />);
-//     component.find('input').simulate('change', event);
-//     expect(onSearchMock).toBeCalledWith('the-value');
-//   });
   

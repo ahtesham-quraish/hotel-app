@@ -4,11 +4,11 @@ import HotelList from '../../components/hotellist/HotelList';
 import SortRow from '../../components/sortRow/SortRow';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Search from '../../components/search/Search';
-import moment from 'moment';
 import _ from 'underscore'
-import {validDates} from '../../utils/dataFilters';
+import {validDates, filterHotelsByDate} from '../../utils/dataFilters';
 import {URL} from '../../uls';
 import request from '../../service';
+import makeCancelable from 'makecancelable';
 class App extends Component {
   constructor(props) { 
     super(props); 
@@ -19,40 +19,55 @@ class App extends Component {
     }; 
   }
   componentDidMount = () =>{
-    this.fetchHotels(URL);
+    this.fetchHotels();
   }
-  fetchHotels = async (URL) => {
-    const hotels = await request(URL);
-    this.setState({hotels : hotels, hotelData : hotels});
+  /**
+   * This method would fetch hotel list from server.
+   */
+  fetchHotels = () => {
+    this.cancelFetch = makeCancelable(
+      request(URL),
+      fetched => this.setState({hotels : fetched, hotelData : fetched}),
+      error => console.error(error)
+    );
   }
-  findHotelByName = (txt) => {
+  componentWillUnmount = () => {
+    this.cancelFetch();
+  }
+
+  /**
+   * This method takes two parems, first is on which list 
+   * would be filtered and second would be the value for 
+   * comparision.
+   */
+  findHotelByName = (filterBy, value) => {
+    if(value === '' || value === undefined){
+      this.setState({hotels : this.state.hotelData})
+      return ;
+    }
     const hotels = this.state.hotelData;
-    let filteredHotels = hotels.filter(hotel => hotel.name === txt)
+    let filteredHotels = hotels.filter(hotel => hotel[filterBy] === value)
     this.setState({hotels : filteredHotels});
   }
+
+  /**
+  * This method would sort the list on the basis of given Key. 
+  */
   sortHotelhandler = (sortBYKey) =>{
     const hotels = this.state.hotels;
     let sortedArr  = _.sortBy(hotels, (o) => o[sortBYKey])
     this.setState({hotels : sortedArr});
   }
+
+  /**
+   * This method would require start date and end date to filter
+   * hotel list. It would first validate the start and end dates. 
+   */
   searchHotel = (startDate, endDate) =>{
-    let filteredHotels = [];
     let hotels = this.state.hotelData;
     let nights = endDate.diff(startDate, 'days');
     if(validDates(startDate, endDate)){
-      filteredHotels = hotels.filter(hotel => {
-        let availability = hotel.availability;
-        let yes =  availability.filter(availabilityDate => {
-          let availabilityFrom = moment(availabilityDate.from, "DD-MM-YYYY");
-          let availabilityTo = moment(availabilityDate.to, "DD-MM-YYYY");
-          if (startDate.isBetween(availabilityFrom, availabilityTo, 'days', '[]') && endDate.isBetween(availabilityFrom, availabilityTo, 'days', '[]')) {
-              return true;
-          }
-          return false;
-         });
-         hotel.price = hotel.price * nights;
-         return yes.length > 0; 
-      })
+    const filteredHotels =   filterHotelsByDate(hotels, startDate, endDate, nights); 
      this.setState({hotels : filteredHotels, nights : nights});  
     }
     

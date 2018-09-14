@@ -43,20 +43,28 @@ it('renders without crashing', async () => {
   const endDate = moment('2019-10-15', format, "America/Toronto");
   expect(validDates(fromDate, endDate)).toBe(false);
 });
-it('renders without crashing', async () => { 
-  const wrapper = mount(<App  />);
- await wrapper.instance().fetchHotels(URL);
-  expect(wrapper.state('hotels').length).toBeGreaterThan(0);
-  wrapper.unmount()
-});
+// it('renders without crashing', async () => { 
+//   const wrapper = mount(<App  />);
+//  await wrapper.instance().fetchHotels(URL);
+//   expect(wrapper.state('hotels').length).toBeGreaterThan(0);
+//   wrapper.instance().cancelFetch()
+// });
 
 
 it('renders without crashing', async () => {
   const hotelList = await fetchHotelList();  
   const wrapper = mount(<App  />);
   wrapper.setState({hotels : hotelList.hotels, hotelData :  hotelList.hotels})
-  wrapper.instance().findHotelByName('Media One Hotel');
+  wrapper.instance().findHotelByName('name', 'Media One Hotel');
   expect(wrapper.state('hotels').length).toBe(1);
+  wrapper.unmount()
+});
+it('renders without crashing', async () => {
+  const hotelList = await fetchHotelList();  
+  const wrapper = mount(<App  />);
+  wrapper.setState({hotels : hotelList.hotels, hotelData :  hotelList.hotels})
+  wrapper.instance().findHotelByName('name', '');
+  expect(wrapper.state('hotels').length).toBe(6);
   wrapper.unmount()
 });
 

@@ -13,20 +13,6 @@
     line-height: 15px;
     border-radius: 15px;
     margin: 0 0 15px; }
-  .search-hotel .search-btn {
-    position: absolute;
-    right: 5px;
-    top: 0;
-    z-index: 5;
-    background: none;
-    background-image: url("../../images/search-icon.png");
-    width: 25px;
-    height: 25px;
-    background-size: cover;
-    border: none;
-    border-radius: 50%;
-    font-size: 0;
-    line-height: 0; }
   .search-hotel label {
     margin: 0 0 8px;
     font-size: 14px;

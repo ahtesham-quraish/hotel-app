@@ -29,9 +29,15 @@ it('check the Click button handler ', () => {
         findHotelByName
     }
     const wrapper = mount(<Sidebar {...props} />);
-    const button = wrapper.find('#searchByText') 
+    const button = wrapper.find('button').first(); 
     button.simulate('click');
     expect(findHotelByName).toHaveBeenCalled();
   });
-
+  it('it simulate the search text OnChange', () => {
+    let startDate =  moment();
+    const wrapper = mount(<Sidebar />);
+    expect(wrapper.state('value')).toBe(0);
+    wrapper.instance().setValue(10);
+    expect(wrapper.state('value')).toBe(10);
+});
   

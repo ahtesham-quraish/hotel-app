@@ -17,8 +17,8 @@ it('check the Click button handler ', () => {
         sortHotelhandler
     }
     const wrapper = mount(<SortRow {...props} />);
-    const span = wrapper.find('#nameId') 
-    span.simulate('click');
+    const button = wrapper.find('button').first() 
+    button.simulate('click');
     expect(sortHotelhandler).toHaveBeenCalled();
   });
   it('check the Click button handler ', () => {
@@ -27,8 +27,8 @@ it('check the Click button handler ', () => {
         sortHotelhandler
     }
     const wrapper = mount(<SortRow {...props} />);
-    const span = wrapper.find('#priceId') 
-    span.simulate('click');
+    const button = wrapper.find('button').last(); 
+    button.simulate('click');
     expect(sortHotelhandler).toHaveBeenCalled();
   });
   
