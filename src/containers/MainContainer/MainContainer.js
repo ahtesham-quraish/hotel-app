@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import App from '../App/App';
 import fetchHotelListAction from './actions/fetchHotelListAction';
 import { connect } from 'react-redux';
@@ -14,7 +14,7 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = (dispatch) => ({
   fetchHotelList: bindActionCreators(fetchHotelListAction, dispatch),
 });
-class MainContainer extends Component {
+class MainContainer extends PureComponent {
   componentDidMount = () => {
       this.props.fetchHotelList(URL);
   };
