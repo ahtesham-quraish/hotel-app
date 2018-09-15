@@ -17,8 +17,7 @@ const format = 'YYYY/MM/DD';
 // });
 
 it('Simulate Input change ', () => {
-  const startDateHandlerMock = jest.fn(),
-    wrapper = mount(<Search />);
+  const  wrapper = mount(<Search />);
   const input = wrapper.find('input').first();
   input.simulate('change', {
     target: { value: moment('2017-01-02').format(format) },
@@ -29,8 +28,8 @@ it('Simulate Input change ', () => {
 });
 
 it('Simulate Input change ', () => {
-  const startDateHandlerMock = jest.fn(),
-    wrapper = mount(<Search />);
+  
+  const  wrapper = mount(<Search />);
   const input = wrapper.find('input').last();
   input.simulate('change', {
     target: { value: moment('2018-01-02').format(format) },
