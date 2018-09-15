@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from '../src/containers/App/App';
+import MainContainer from '../src/containers/MainContainer/MainContainer';
 import registerServiceWorker from './registerServiceWorker';
-
-ReactDOM.render(<App />, document.getElementById('root'));
+import configureStore from './configureStore';
+const store = configureStore();
+ReactDOM.render(  <MainContainer store={store} />  , document.getElementById('root'));
 registerServiceWorker();

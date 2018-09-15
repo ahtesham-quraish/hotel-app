@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-export default class Hotel extends Component {
-  render() {
-    const { hotel } = this.props;
+import React from 'react';
+import pure from 'recompose/pure';
+const Hotel = (props) => {
+    const { hotel } = props;
     return (
       <li>
         <span className="info">
@@ -15,5 +15,5 @@ export default class Hotel extends Component {
         </span>
       </li>
     );
-  }
 }
+export default pure(Hotel);

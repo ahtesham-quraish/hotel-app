@@ -3,7 +3,7 @@
 exports[`renders without crashing 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Hotel
+  Symbol(enzyme.__unrendered__): <pure(Hotel)
     hotel={
         Object {
             "availability": Array [
@@ -37,293 +37,61 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "function",
     "props": Object {
-      "children": Array [
-        <span
-          className="info"
->
-          <span>
-                    Name:
-          </span>
-           
-          Media One Hotel
-           
-</span>,
-        <span
-          className="info"
->
-          <span>
-                    Price:
-          </span>
-           
-          102.2 AED
-           
-</span>,
-        <span
-          className="info"
->
-          <span>
-                    City:
-          </span>
-           
-          dubai
-           
-</span>,
-      ],
+      "hotel": Object {
+        "availability": Array [
+          Object {
+            "from": "10-10-2020",
+            "to": "15-10-2020",
+          },
+          Object {
+            "from": "25-10-2020",
+            "to": "15-11-2020",
+          },
+          Object {
+            "from": "10-12-2020",
+            "to": "15-12-2020",
+          },
+        ],
+        "city": "dubai",
+        "name": "Media One Hotel",
+        "price": 102.2,
+      },
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <span>
-              Name:
-</span>,
-            " ",
-            "Media One Hotel",
-            " ",
-          ],
-          "className": "info",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Name:",
-            },
-            "ref": null,
-            "rendered": "Name:",
-            "type": "span",
-          },
-          " ",
-          "Media One Hotel",
-          " ",
-        ],
-        "type": "span",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <span>
-              Price:
-</span>,
-            " ",
-            "102.2 AED",
-            " ",
-          ],
-          "className": "info",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Price:",
-            },
-            "ref": null,
-            "rendered": "Price:",
-            "type": "span",
-          },
-          " ",
-          "102.2 AED",
-          " ",
-        ],
-        "type": "span",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <span>
-              City:
-</span>,
-            " ",
-            "dubai",
-            " ",
-          ],
-          "className": "info",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "City:",
-            },
-            "ref": null,
-            "rendered": "City:",
-            "type": "span",
-          },
-          " ",
-          "dubai",
-          " ",
-        ],
-        "type": "span",
-      },
-    ],
-    "type": "li",
+    "rendered": null,
+    "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "function",
       "props": Object {
-        "children": Array [
-          <span
-            className="info"
->
-            <span>
-                        Name:
-            </span>
-             
-            Media One Hotel
-             
-</span>,
-          <span
-            className="info"
->
-            <span>
-                        Price:
-            </span>
-             
-            102.2 AED
-             
-</span>,
-          <span
-            className="info"
->
-            <span>
-                        City:
-            </span>
-             
-            dubai
-             
-</span>,
-        ],
+        "hotel": Object {
+          "availability": Array [
+            Object {
+              "from": "10-10-2020",
+              "to": "15-10-2020",
+            },
+            Object {
+              "from": "25-10-2020",
+              "to": "15-11-2020",
+            },
+            Object {
+              "from": "10-12-2020",
+              "to": "15-12-2020",
+            },
+          ],
+          "city": "dubai",
+          "name": "Media One Hotel",
+          "price": 102.2,
+        },
       },
       "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <span>
-                Name:
-</span>,
-              " ",
-              "Media One Hotel",
-              " ",
-            ],
-            "className": "info",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Name:",
-              },
-              "ref": null,
-              "rendered": "Name:",
-              "type": "span",
-            },
-            " ",
-            "Media One Hotel",
-            " ",
-          ],
-          "type": "span",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <span>
-                Price:
-</span>,
-              " ",
-              "102.2 AED",
-              " ",
-            ],
-            "className": "info",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Price:",
-              },
-              "ref": null,
-              "rendered": "Price:",
-              "type": "span",
-            },
-            " ",
-            "102.2 AED",
-            " ",
-          ],
-          "type": "span",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <span>
-                City:
-</span>,
-              " ",
-              "dubai",
-              " ",
-            ],
-            "className": "info",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "City:",
-              },
-              "ref": null,
-              "rendered": "City:",
-              "type": "span",
-            },
-            " ",
-            "dubai",
-            " ",
-          ],
-          "type": "span",
-        },
-      ],
-      "type": "li",
+      "rendered": null,
+      "type": [Function],
     },
   ],
   Symbol(enzyme.__options__): Object {

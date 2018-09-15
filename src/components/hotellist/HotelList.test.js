@@ -21,8 +21,3 @@ test('Check Hotel Count', async () => {
   const wrapper = mount(<HotelList hotelList={hotelList.hotels} />);
   expect(wrapper.find('li').length).toEqual(hotelList.hotels.length);
 });
-test('Check Class exist or not', async () => {
-  const hotelList = await fetchHotelList();
-  const wrapper = shallow(<HotelList hotelList={hotelList.hotels} />);
-  expect(wrapper.hasClass('card-list')).toEqual(true);
-});

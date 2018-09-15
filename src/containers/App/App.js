@@ -5,41 +5,25 @@ import SortRow from '../../components/sortRow/SortRow';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Search from '../../components/search/Search';
 import _ from 'underscore';
+
+
 import {
   validDates,
   filterHotelsByDate,
   findRangeValues,
 } from '../../utils/dataFilters';
-import { URL } from '../../uls';
-import request from '../../service';
-import makeCancelable from 'makecancelable';
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       hotels: [],
-      hotelData: [],
       nights: 0,
       ranges: { min: 0, max: 0 },
       filteredHotels: [],
     };
   }
-  componentDidMount = () => {
-    this.fetchHotels();
-  };
-  /**
-   * This method would fetch hotel list from server.
-   */
-  fetchHotels = () => {
-    this.cancelFetch = makeCancelable(
-      request(URL),
-      (fetched) => this.setState({ hotelData: fetched }),
-      (error) => console.error(error),
-    );
-  };
-  componentWillUnmount = () => {
-    this.cancelFetch();
-  };
+
 
   /**
    * This method takes two parems, first is on which list
@@ -75,7 +59,7 @@ class App extends Component {
    * hotel list. It would first validate the start and end dates.
    */
   searchHotel = (startDate, endDate) => {
-    let hotels = _.map(this.state.hotelData, _.clone);
+    let hotels = _.map(this.props.hotelList, _.clone);
     let nights = endDate.diff(startDate, 'days');
     if (validDates(startDate, endDate)) {
       const filteredHotels = filterHotelsByDate(

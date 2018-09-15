@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-
+import pure from 'recompose/pure';
 const Button = (props) => {
   const { classStyle, text, id } = props;
   return (
@@ -9,4 +9,4 @@ const Button = (props) => {
     </button>
   );
 };
-export default Button;
+export default pure(Button);

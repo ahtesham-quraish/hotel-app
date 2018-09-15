@@ -41,6 +41,13 @@ it('Check setValue', () => {
   expect(wrapper.state('value')).toBe(10);
 });
 
+
+// it('Check setValue', () => {
+//     const findHotelByName = jest.fn();
+//     const wrapper = mount(<Sidebar />);
+//     wrapper.instance().setValue(10);
+//     expect(wrapper.state('value')).toBe(10);
+// });
 it('it simulate the form submission', () => {
   const wrapper = mount(<Sidebar />);
   wrapper.find('form').simulate('submit', { preventDefault: jest.fn() });
