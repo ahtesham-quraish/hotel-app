@@ -18,20 +18,15 @@ const format = 'YYYY/MM/DD';
 
 it('Simulate Input change ', () => {
   const  wrapper = mount(<Search />);
-  const input = wrapper.find('input').first();
-  input.simulate('change', {
+  const input1 = wrapper.find('input').first();
+  input1.simulate('change', {
     target: { value: moment('2017-01-02').format(format) },
   });
   expect(wrapper.state('startDate').format(format)).toBe(
     moment('2017-01-02').format(format),
   );
-});
-
-it('Simulate Input change ', () => {
-  
-  const  wrapper = mount(<Search />);
-  const input = wrapper.find('input').last();
-  input.simulate('change', {
+  const input2 = wrapper.find('input').last();
+  input2.simulate('change', {
     target: { value: moment('2018-01-02').format(format) },
   });
   expect(wrapper.state('endDate').format(format)).toBe(
