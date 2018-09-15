@@ -8,6 +8,9 @@ import moment from 'moment';
 import {URL} from '../../uls';
 import { validDates } from '../../utils/dataFilters';
 Enzyme.configure({ adapter: new Adapter() });
+const format="YYYY/MM/DD";
+import makeCancelable from 'makecancelable';
+import flushPromises from 'makecancelable'
 
 it('renders without crashing', async () => {
   const div = document.createElement('div');
@@ -17,13 +20,13 @@ it('renders without crashing', async () => {
 
 
 it('renders without crashing', async () => {
-  const  fromDate = '2020-10-15';
+  const  fromDate = '2020-10-4';
   const  endDate = '2020-10-20';
   const hotelList = await fetchHotelList();  
   const wrapper = mount(<App  />);
   wrapper.setState({hotels : hotelList.hotels, hotelData :  hotelList.hotels})
-  wrapper.instance().searchHotel(moment(fromDate) , moment(endDate));
-  expect(wrapper.state('hotels').length).toBe(1);
+  wrapper.instance().searchHotel(moment(fromDate, format, "America/Toronto") , moment(endDate, format, "America/Toronto"));
+  expect(wrapper.state('hotels').length).toBe(4);
   wrapper.unmount()
   
 });
@@ -38,23 +41,21 @@ it('renders without crashing', async () => {
   wrapper.unmount()
 });
 it('renders without crashing', async () => { 
-  const format="YYYY/MM/DD";
   const fromDate = moment('2020-10-15', format, "America/Toronto");
   const endDate = moment('2019-10-15', format, "America/Toronto");
   expect(validDates(fromDate, endDate)).toBe(false);
 });
-// it('renders without crashing', async () => { 
-//   const wrapper = mount(<App  />);
-//  await wrapper.instance().fetchHotels(URL);
-//   expect(wrapper.state('hotels').length).toBeGreaterThan(0);
-//   wrapper.instance().cancelFetch()
+// it('renders without crashing',  async () => { 
+//  const wrapper = mount(<App  />);
+//  const promise = await  wrapper.instance().fetchHotels();
+//   //expect(wrapper.state('hotelData').length).toBeGreaterThan(0);
+//   wrapper.unmount()
 // });
-
 
 it('renders without crashing', async () => {
   const hotelList = await fetchHotelList();  
   const wrapper = mount(<App  />);
-  wrapper.setState({hotels : hotelList.hotels, hotelData :  hotelList.hotels})
+  wrapper.setState({hotels : hotelList.hotels, filteredHotels: hotelList.hotels, hotelData :  hotelList.hotels})
   wrapper.instance().findHotelByName('name', 'Media One Hotel');
   expect(wrapper.state('hotels').length).toBe(1);
   wrapper.unmount()
@@ -62,7 +63,7 @@ it('renders without crashing', async () => {
 it('renders without crashing', async () => {
   const hotelList = await fetchHotelList();  
   const wrapper = mount(<App  />);
-  wrapper.setState({hotels : hotelList.hotels, hotelData :  hotelList.hotels})
+  wrapper.setState({hotels : hotelList.hotels, filteredHotels:  hotelList.hotels,  hotelData :  hotelList.hotels})
   wrapper.instance().findHotelByName('name', '');
   expect(wrapper.state('hotels').length).toBe(6);
   wrapper.unmount()

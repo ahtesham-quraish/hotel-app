@@ -43,4 +43,7 @@ it('check the Click button handler ', () => {
   expect(searchHotelCallBack).toHaveBeenCalled();
 });
 
-  
+it('it simulate the search text OnChange', () => {
+  const wrapper = mount(<Search />);
+  wrapper.find('form').simulate('submit', { preventDefault: jest.fn() });
+});  

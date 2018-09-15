@@ -8,11 +8,12 @@ import Button from '../button/Button';
 export default class Search extends Component {
     constructor(props) { 
         super(props); 
-        this.state = { 
-            startDate: moment(),
-            endDate : moment(),  
-        }; 
         this.format="YYYY/MM/DD";
+        this.state = { 
+            startDate: moment('2020-10-4', this.format),
+            endDate : moment('2020-10-20', this.format),  
+        }; 
+        
   }
   startDateHandler = (date) =>{
     this.setState({
@@ -27,7 +28,7 @@ export default class Search extends Component {
   render() {
       const {startDate , endDate} = this.state;
     return (
-        <form action="#" className="search-form">
+        <form action="#" onSubmit={e => e.preventDefault()} className="search-form">
             <div className="three-cols">
                 <div className="col">
                 <DatePicker

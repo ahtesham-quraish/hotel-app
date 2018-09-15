@@ -7,10 +7,12 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 Enzyme.configure({ adapter: new Adapter() });
 
-it('it simulate the search text OnChange', () => {
+
+it('it simulate the search text OnChange3', () => {
     const event = {
       target: { value: 'A' }
     };
+
     let startDate =  moment();
     const wrapper = mount(<Sidebar />);
     expect(wrapper.state('hotelName')).toBe('');
@@ -33,7 +35,7 @@ it('check the Click button handler ', () => {
     button.simulate('click');
     expect(findHotelByName).toHaveBeenCalled();
   });
-  it('it simulate the search text OnChange', () => {
+  it('it simulate the search text OnChange 1', () => {
     let startDate =  moment();
     const wrapper = mount(<Sidebar />);
     expect(wrapper.state('value')).toBe(0);
@@ -41,3 +43,21 @@ it('check the Click button handler ', () => {
     expect(wrapper.state('value')).toBe(10);
 });
   
+
+it('it simulate the search text OnChange 2', () => {
+    const wrapper = mount(<Sidebar />);
+    wrapper.find('form').simulate('submit', { preventDefault: jest.fn() });
+});
+
+// // https://github.com/react-component/slider/pull/256
+// it('should handle mutli handle mouseEnter correctly', () => {
+//     const props={ranges:{min : 0, max: 100}}
+//     const wrapper = mount(<Sidebar {...props}/>);
+//     const propss = { min: 0, max: 10000, value: [0.01, 10000], onChange: jest.fn() };
+//     const range = wrapper.find('#id-1');
+//     //const range = mount(<Range {...props} step={0.1} />);
+//     range.setProps({ min: 0, max: 590 });
+//     range.setProps({ min: 0, max: 500 });
+//     expect(props.onChange).toHaveBeenCalledWith([0.01, 500]);
+      
+//   });
