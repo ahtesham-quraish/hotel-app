@@ -7,28 +7,22 @@ import fetchHotelList from '../../../__mocks__/fetchHotels';
 Enzyme.configure({ adapter: new Adapter() });
 
 it('toMatchSnapshot Check', async () => {
-  const hotelList = await fetchHotelList();  
+  const hotelList = await fetchHotelList();
   const wrapper = shallow(<HotelList hotelList={hotelList.hotels} />);
   expect(wrapper).toMatchSnapshot();
 });
 test('Check state of the component is mounted ', async () => {
-    const hotelList = await fetchHotelList(); 
-    const wrapper = mount(
-        <HotelList hotelList={hotelList.hotels} />
-    );
-    expect(wrapper.prop('hotelList').length).toEqual(hotelList.hotels.length);
+  const hotelList = await fetchHotelList();
+  const wrapper = mount(<HotelList hotelList={hotelList.hotels} />);
+  expect(wrapper.prop('hotelList').length).toEqual(hotelList.hotels.length);
 });
 test('Check Hotel Count', async () => {
-    const hotelList = await fetchHotelList(); 
-    const wrapper = mount(
-        <HotelList hotelList={hotelList.hotels} />
-    );
-    expect(wrapper.find('li').length).toEqual(hotelList.hotels.length);
+  const hotelList = await fetchHotelList();
+  const wrapper = mount(<HotelList hotelList={hotelList.hotels} />);
+  expect(wrapper.find('li').length).toEqual(hotelList.hotels.length);
 });
 test('Check Class exist or not', async () => {
-    const hotelList = await fetchHotelList(); 
-    const wrapper = shallow(
-        <HotelList hotelList={hotelList.hotels} />
-    );
-    expect(wrapper.hasClass('card-list')).toEqual(true);
+  const hotelList = await fetchHotelList();
+  const wrapper = shallow(<HotelList hotelList={hotelList.hotels} />);
+  expect(wrapper.hasClass('card-list')).toEqual(true);
 });
