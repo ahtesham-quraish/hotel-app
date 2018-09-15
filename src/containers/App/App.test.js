@@ -18,6 +18,10 @@ const Setup  = (hotelList) => {
   wrapper.setState({hotels : hotelList.hotels, filteredHotels:  hotelList.hotels})
   return wrapper;
 }; 
+const runInstanceMethod = (wrapper, method, parem1, parem2) => {
+  console.log(wrapper, method)
+  wrapper.instance().searchHotel(parem1, parem2)
+}
 it('renders without crashing', async () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
@@ -28,7 +32,7 @@ it('renders without crashing', async () => {
 it('Check searchHotel by given dates', async () => {
   const hotelList = await fetchHotelList();  
   const wrapper = Setup(hotelList);
-  wrapper.instance().searchHotel(moment('2020-10-4', format, "America/Toronto") , moment('2020-10-20', format, "America/Toronto"));
+  runInstanceMethod(wrapper, 'searchHotel', moment('2020-10-4', format, "America/Toronto") , moment('2020-10-20', format, "America/Toronto"))
   expect(wrapper.state('hotels').length).toBe(4);
   wrapper.unmount()
   
@@ -36,7 +40,7 @@ it('Check searchHotel by given dates', async () => {
 it('Check searchHotel by given dates', async () => {
   const hotelList = await fetchHotelList();  
   const wrapper = Setup(hotelList);
-  wrapper.instance().searchHotel(moment('2022-10-4', format, "America/Toronto") , moment('2020-10-20', format, "America/Toronto"));
+  runInstanceMethod(wrapper, 'searchHotel',moment('2022-10-4', format, "America/Toronto") , moment('2020-10-20', format, "America/Toronto"));
   expect(wrapper.state('hotels').length).toBe(6);
   wrapper.unmount()
   
