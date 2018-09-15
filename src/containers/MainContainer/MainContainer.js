@@ -15,9 +15,6 @@ const mapDispatchToProps = (dispatch) => ({
   fetchHotelList: bindActionCreators(fetchHotelListAction, dispatch),
 });
 class MainContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount = () => {
       this.props.fetchHotelList(URL);
   };
