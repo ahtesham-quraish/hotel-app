@@ -19,7 +19,7 @@ it('renders without crashing', async () => {
 });
 
 
-it('renders without crashing', async () => {
+it('Check searchHotel by given dates', async () => {
   const  fromDate = '2020-10-4';
   const  endDate = '2020-10-20';
   const hotelList = await fetchHotelList();  
@@ -32,7 +32,7 @@ it('renders without crashing', async () => {
 });
 
 
-it('renders without crashing', async () => {
+it('Check sortHotelhandler', async () => {
   const hotelList = await fetchHotelList();  
   const wrapper = mount(<App  />);
   wrapper.setState({hotels : hotelList.hotels, hotelData :  hotelList.hotels})
@@ -40,7 +40,7 @@ it('renders without crashing', async () => {
   expect(wrapper.state('hotels')[0].name).toBe(hotelList.hotels[5].name);
   wrapper.unmount()
 });
-it('renders without crashing', async () => { 
+it('Check validDates', async () => { 
   const fromDate = moment('2020-10-15', format, "America/Toronto");
   const endDate = moment('2019-10-15', format, "America/Toronto");
   expect(validDates(fromDate, endDate)).toBe(false);
@@ -52,7 +52,7 @@ it('renders without crashing', async () => {
 //   wrapper.unmount()
 // });
 
-it('renders without crashing', async () => {
+it('CHeck findHotelByName', async () => {
   const hotelList = await fetchHotelList();  
   const wrapper = mount(<App  />);
   wrapper.setState({hotels : hotelList.hotels, filteredHotels: hotelList.hotels, hotelData :  hotelList.hotels})
@@ -60,7 +60,7 @@ it('renders without crashing', async () => {
   expect(wrapper.state('hotels').length).toBe(1);
   wrapper.unmount()
 });
-it('renders without crashing', async () => {
+it('Check findHotelByName When Empty string is given', async () => {
   const hotelList = await fetchHotelList();  
   const wrapper = mount(<App  />);
   wrapper.setState({hotels : hotelList.hotels, filteredHotels:  hotelList.hotels,  hotelData :  hotelList.hotels})

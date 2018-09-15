@@ -8,7 +8,7 @@ import moment from 'moment';
 Enzyme.configure({ adapter: new Adapter() });
 
 
-it('it simulate the search text OnChange3', () => {
+it('Simulate Input Change handler', () => {
     const event = {
       target: { value: 'A' }
     };
@@ -19,13 +19,13 @@ it('it simulate the search text OnChange3', () => {
     wrapper.find('#searchText').simulate('change', event);
     expect(wrapper.state('hotelName')).toBe('A');
 });
-it('it simulate the search text OnChange', () => {
+it('Check Input is mounted', () => {
     const wrapper = mount(<Sidebar />);
     expect(wrapper.find('input').length).toEqual(1);
 
 });
 
-it('check the Click button handler ', () => {
+it('Simulate Button click handler ', () => {
     const findHotelByName = jest.fn();
     const props = {
         findHotelByName
@@ -35,7 +35,7 @@ it('check the Click button handler ', () => {
     button.simulate('click');
     expect(findHotelByName).toHaveBeenCalled();
   });
-  it('it simulate the search text OnChange 1', () => {
+  it('Check setValue', () => {
     let startDate =  moment();
     const wrapper = mount(<Sidebar />);
     expect(wrapper.state('value')).toBe(0);
@@ -44,7 +44,7 @@ it('check the Click button handler ', () => {
 });
   
 
-it('it simulate the search text OnChange 2', () => {
+it('it simulate the form submission', () => {
     const wrapper = mount(<Sidebar />);
     wrapper.find('form').simulate('submit', { preventDefault: jest.fn() });
 });

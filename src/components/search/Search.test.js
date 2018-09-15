@@ -16,7 +16,7 @@ const format="YYYY/MM/DD";
 //     expect((DateInputComponent).prop('selected')).toEqual(null);
 // });
 
-it('check the StartDate State ', () => {
+it('Simulate Input change ', () => {
   const startDateHandlerMock = jest.fn(),
       wrapper = mount(<Search  />);
       const input = wrapper.find('input').first();  
@@ -24,7 +24,7 @@ it('check the StartDate State ', () => {
       expect(wrapper.state('startDate').format(format)).toBe(moment('2017-01-02').format(format));
 });
 
-it('check the endDate State ', () => {
+it('Simulate Input change ', () => {
   const startDateHandlerMock = jest.fn(),
       wrapper = mount(<Search  />);
       const input = wrapper.find('input').last();  
