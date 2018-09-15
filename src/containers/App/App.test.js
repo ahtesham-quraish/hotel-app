@@ -12,7 +12,12 @@ const format="YYYY/MM/DD";
 import makeCancelable from 'makecancelable';
 import flushPromises from 'makecancelable'
 
-const Setup  = () => mount(<App  />); 
+const Setup  = (hotelList) => {
+  const wrapper = mount(<App  />)
+  wrapper.setProps({hotelList : hotelList.hotels})
+  wrapper.setState({hotels : hotelList.hotels, filteredHotels:  hotelList.hotels})
+  return wrapper;
+}; 
 it('renders without crashing', async () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
@@ -22,9 +27,9 @@ it('renders without crashing', async () => {
 
 it('Check searchHotel by given dates', async () => {
   const hotelList = await fetchHotelList();  
-  const wrapper = Setup();
-  wrapper.setProps({hotelList : hotelList.hotels})
-  wrapper.setState({hotels : hotelList.hotels, hotelData :  hotelList.hotels})
+  const wrapper = Setup(hotelList);
+  //wrapper.setProps({hotelList : hotelList.hotels})
+  // wrapper.setState({hotels : hotelList.hotels, hotelData :  hotelList.hotels})
   wrapper.instance().searchHotel(moment('2020-10-4', format, "America/Toronto") , moment('2020-10-20', format, "America/Toronto"));
   expect(wrapper.state('hotels').length).toBe(4);
   wrapper.unmount()
@@ -32,9 +37,9 @@ it('Check searchHotel by given dates', async () => {
 });
 it('Check searchHotel by given dates', async () => {
   const hotelList = await fetchHotelList();  
-  const wrapper = Setup();
-  wrapper.setProps({hotelList : hotelList.hotels})
-  wrapper.setState({hotels : hotelList.hotels, hotelData :  hotelList.hotels})
+  const wrapper = Setup(hotelList);
+  // wrapper.setProps({hotelList : hotelList.hotels})
+  // wrapper.setState({hotels : hotelList.hotels, hotelData :  hotelList.hotels})
   wrapper.instance().searchHotel(moment('2022-10-4', format, "America/Toronto") , moment('2020-10-20', format, "America/Toronto"));
   expect(wrapper.state('hotels').length).toBe(6);
   wrapper.unmount()
@@ -43,9 +48,9 @@ it('Check searchHotel by given dates', async () => {
 
 it('Check sortHotelhandler', async () => {
   const hotelList = await fetchHotelList();  
-  const wrapper = Setup();
-  wrapper.setProps({hotelList : hotelList.hotels})
-  wrapper.setState({hotels : hotelList.hotels, hotelData :  hotelList.hotels})
+  const wrapper = Setup(hotelList);
+  //wrapper.setProps({hotelList : hotelList.hotels})
+  //wrapper.setState({hotels : hotelList.hotels, hotelData :  hotelList.hotels})
   wrapper.instance().sortHotelhandler('name');
   expect(wrapper.state('hotels')[0].name).toBe(hotelList.hotels[5].name);
   wrapper.unmount()
@@ -59,18 +64,18 @@ it('Check validDates', async () => {
 
 it('CHeck findHotelByName', async () => {
   const hotelList = await fetchHotelList();  
-  const wrapper = Setup();
-  wrapper.setProps({hotelList : hotelList.hotels})
-  wrapper.setState({hotels : hotelList.hotels, filteredHotels: hotelList.hotels, hotelData :  hotelList.hotels})
+  const wrapper = Setup(hotelList);
+  //wrapper.setProps({hotelList : hotelList.hotels})
+  //wrapper.setState({hotels : hotelList.hotels, filteredHotels: hotelList.hotels})
   wrapper.instance().findHotelByName('name', 'Media One Hotel');
   expect(wrapper.state('hotels').length).toBe(1);
   wrapper.unmount()
 });
 it('Check findHotelByName When Empty string is given', async () => {
   const hotelList = await fetchHotelList();  
-  const wrapper = Setup();
-  wrapper.setProps({hotelList : hotelList.hotels})
-  wrapper.setState({hotels : hotelList.hotels, filteredHotels:  hotelList.hotels,  hotelData :  hotelList.hotels})
+  const wrapper = Setup(hotelList);
+ // wrapper.setProps({hotelList : hotelList.hotels})
+  //wrapper.setState({hotels : hotelList.hotels, filteredHotels:  hotelList.hotels})
   wrapper.instance().findHotelByName('name', '');
   expect(wrapper.state('hotels').length).toBe(6);
   wrapper.unmount()
