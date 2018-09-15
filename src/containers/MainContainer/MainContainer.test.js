@@ -22,19 +22,22 @@ const middlewares = [thunk]
 import moxios from 'moxios';
 const mockStore = configureMockStore(middlewares)
 
+const Setup = (status) =>{
+  moxios.wait(() => {
+    const request = moxios.requests.mostRecent();
+    request.respondWith({
+      status: status,
+      response: [{'name': 'Media One Hotel'}],
+    });
+  });
+}
 describe('getPosts actions', () => {
   beforeEach(function () {
     moxios.install();
   });
  it('creates GET_POSTS_SUCCESS after successfuly fetching postse', () => {
-  moxios.wait(() => {
-    const request = moxios.requests.mostRecent();
-    request.respondWith({
-      status: 200,
-      response: [{'name': 'Media One Hotel'}],
-    });
-  });
-    const expectedActions = [
+  Setup(200)
+      const expectedActions = [
      { type: ACTIONS.FETCH_HOTEL_REQUEST },
      { type: ACTIONS.FETCH_HOTEL_SUCCESS, 
       response : [{'name': 'Media One Hotel'}]
@@ -51,13 +54,7 @@ describe('getPosts actions', () => {
     moxios.install();
   });
  it('creates GET_POSTS_SUCCESS after successfuly fetching postse', () => {
-  moxios.wait(() => {
-    const request = moxios.requests.mostRecent();
-    request.respondWith({
-      status: 400,
-      response: [{'name': 'Media One Hotel'}],
-    });
-  });
+  Setup(400)
     const expectedActions = [
      { type: ACTIONS.FETCH_HOTEL_REQUEST },
      { type: ACTIONS.FETCH_HOTEL_FAILED, 
@@ -68,7 +65,7 @@ describe('getPosts actions', () => {
    return store.dispatch(fetchHotelListAction('/wrongUrl')).then(() => {
     expect(store.getActions()).toEqual(expectedActions)
   })
-})
+});
 it('should handle ADD_TODO', () => {
   expect(
     reducer([], {

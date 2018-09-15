@@ -19,17 +19,7 @@ it('check the Click button handler ', () => {
   const button1 = wrapper.find('button').first();
   button1.simulate('click');
   expect(sortHotelhandler).toHaveBeenCalled();
-  // const button2 = wrapper.find('button').last();
-  // button2.simulate('click');
-  // expect(sortHotelhandler).toHaveBeenCalled();
-});
-it('check the Click button handler ', () => {
-  const sortHotelhandler = jest.fn();
-  const props = {
-    sortHotelhandler,
-  };
-  const wrapper = mount(<SortRow {...props} />);
-  const button = wrapper.find('button').last();
-  button.simulate('click');
-  expect(sortHotelhandler).toHaveBeenCalled();
-});
+  const button2 = wrapper.find('button').last();
+  button2.simulate('click');
+  expect(sortHotelhandler.mock.calls.length).toBe(2);
+ });
