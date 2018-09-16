@@ -21,7 +21,9 @@ You can find the most recent version of this guide [here](https://github.com/fac
 Following is the matric which explain the Unit test cases results matrics.
 
  PASS  src/components/sidebar/Sidebar.test.js
+ 
  PASS  src/components/search/Search.test.js
+ 
  PASS  src/components/sortRow/SortRow.test.js
  PASS  src/components/slider/Slider.test.js
  PASS  src/components/hotel/Hotel.test.js
