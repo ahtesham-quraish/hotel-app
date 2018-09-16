@@ -17,8 +17,7 @@ class MainContainer extends PureComponent {
   componentDidMount = () => {
     this.props.fetchHotelList(URL);
   };
-
-  render() {
+render() {
     const { hotelList } = this.props;
     return (
       <div className="">

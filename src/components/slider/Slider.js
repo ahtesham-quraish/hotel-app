@@ -12,6 +12,9 @@ export default class SliderComponent extends Component {
   setValue = (e) => {
     this.setState({ value: e });
   };
+  onAfterChangeHandler = () => {
+    this.props.findHotelByName('price', this.state.value)
+  }
   render() {
     const { min, max } = this.props.ranges;
     return (
@@ -22,10 +25,8 @@ export default class SliderComponent extends Component {
               min={min}
               max={max}
               value={this.state.value}
-              onChange={(e) => this.setValue(e)}
-              onAfterChange={() =>
-                this.props.findHotelByName('price', this.state.value)
-              }
+              onChange={this.setValue}
+              onAfterChange={this.onAfterChangeHandler}
             />
         </div>
     );
