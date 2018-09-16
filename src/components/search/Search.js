@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
-import DatePicker from 'react-datepicker';
+import DatePickerComponent from '../datepicker/DatePicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 import Button from '../button/Button';
@@ -34,19 +34,11 @@ export default class Search extends Component {
       >
         <div className="three-cols">
           <div className="col">
-            <DatePicker
-              selected={startDate}
-              onChange={this.startDateHandler}
-              dateFormat={this.format}
-            />
+          <DatePickerComponent selectedDateCallBC={this.startDateHandler} date={startDate} />
           </div>
           <div className="col">
-            <DatePicker
-              selected={endDate}
-              onChange={this.endDateHandler}
-              dateFormat={this.format}
-            />
-          </div>
+            <DatePickerComponent selectedDateCallBC={this.endDateHandler} date={endDate} />
+            </div>
           <Button
             onClick={() => this.props.searchHotelCallBack(startDate, endDate)}
             classStyle={'btn-submit'}
