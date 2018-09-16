@@ -65,11 +65,6 @@ it('CHeck findHotelByName', async () => {
   const wrapper = Setup(hotelList);
   wrapper.instance().findHotelByName('name', 'Media One Hotel');
   expect(wrapper.state('hotels').length).toBe(1);
-  wrapper.unmount()
-});
-it('Check findHotelByName When Empty string is given', async () => {
-  const hotelList = await fetchHotelList();  
-  const wrapper = Setup(hotelList);
   wrapper.instance().findHotelByName('name', '');
   expect(wrapper.state('hotels').length).toBe(6);
   wrapper.unmount()
