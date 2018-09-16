@@ -14,7 +14,7 @@ install node and yarn manager and npm manager.\
 2 - Navigate to root directory of cloned repository\
 3 - Open command line terminal and run the following commands -> npm i create-react-app\
 4 - Run following command -> yarn start (for dev build)\
-5 - Run following command for Unit test -> yarn test\
+5 - Run following command for Unit test -> yarn test
 
 Following is the matric which explain the Unit test cases results matrics.
 
