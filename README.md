@@ -24,10 +24,10 @@ Following is the matric which explain the Unit test cases results matrics.
  
  PASS  src/components/search/Search.test.js
  
- PASS  src/components/sortRow/SortRow.test.js
- PASS  src/components/slider/Slider.test.js
- PASS  src/components/hotel/Hotel.test.js
- PASS  src/components/hotellist/HotelList.test.js
+ PASS  src/components/sortRow/SortRow.test.js\
+ PASS  src/components/slider/Slider.test.js\
+ PASS  src/components/hotel/Hotel.test.js\
+ PASS  src/components/hotellist/HotelList.test.js\
 
 Test Suites: 8 passed, 8 total
 Tests:       25 passed, 25 total
