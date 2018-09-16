@@ -32,19 +32,21 @@ const Setup = (status) => {
     });
   });
 };
-
-it('renders without crashing', async () => {
-  const hotelList = await fetchHotelList();
-  const wrapper = shallow(
+const componentSetup = (hotelList) =>{
+  return shallow(
     <MainContainer store={configureStore()} hotelList={hotelList.hotels[0]} />,
   );
+  }
+it('renders without crashing', async () => {
+  const hotelList = await fetchHotelList();
+  const wrapper = componentSetup(hotelList);
   expect(wrapper).toMatchSnapshot();
 });
-describe('getPosts actions', () => {
+describe(' FETCH_HOTEL_SUCCESS actions', () => {
   beforeEach(function() {
     moxios.install();
   });
-  it('creates GET_POSTS_SUCCESS after successfuly fetching postse', () => {
+  it('creates GET_HOTEL_SUCCESS after successfuly fetching hotles', () => {
     Setup(200);
     const expectedActions = [
       { type: ACTIONS.FETCH_HOTEL_REQUEST },
@@ -60,11 +62,11 @@ describe('getPosts actions', () => {
   });
 });
 
-describe('getPosts actions', () => {
+describe('fetchHotels actions', () => {
   beforeEach(function() {
     moxios.install();
   });
-  it('creates GET_POSTS_SUCCESS after successfuly fetching postse', () => {
+  it('creates GET_HOTEL_FAILED after successfuly fetching hotels', () => {
     Setup(400);
     const expectedActions = [
       { type: ACTIONS.FETCH_HOTEL_REQUEST },
@@ -78,7 +80,7 @@ describe('getPosts actions', () => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
-  it('should handle ADD_TODO', () => {
+  it('should handle FETCH_HOTELS_SUCCESS', () => {
     expect(
       reducer([], {
         type: ACTIONS.FETCH_HOTEL_SUCCESS,

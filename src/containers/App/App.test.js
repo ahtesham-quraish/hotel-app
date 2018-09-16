@@ -76,5 +76,7 @@ it('CHeck findHotelByName', async () => {
   expect(wrapper.state('hotels').length).toBe(1);
   wrapper.instance().findHotelByName('name', '');
   expect(wrapper.state('hotels').length).toBe(6);
+  wrapper.instance().findHotelByName('price', 1200);
+  expect(wrapper.state('hotels').length).toBe(6);
   wrapper.unmount();
 });
