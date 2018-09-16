@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
-import Button from '../button/Button';
+import ButtonContainer from './ButtonContainer';
 
 export default class SortRow extends Component {
   render() {
@@ -8,22 +8,15 @@ export default class SortRow extends Component {
       <div className="sort-row">
         <span className="title">Total Nights: {this.props.nights}</span>
         <ul className="btn-list">
-          <li>
-            <Button
-              onClick={() => this.props.sortHotelhandler('name')}
-              classStyle={'btn-Sort'}
+          
+          <ButtonContainer  classStyle={'btn-Sort'}
               id={'nameId'}
-              text={'Sort by Name'}
-            />
-          </li>
-          <li>
-            <Button
-              onClick={() => this.props.sortHotelhandler('price')}
-              classStyle={'btn-Sort'}
-              id={'priceId'}
-              text={'Sort by Price'}
-            />
-          </li>
+               sortHotelhandler={this.props.sortHotelhandler} filterType={'name'} />
+          
+          <ButtonContainer  
+               id={'priceId'}
+               sortHotelhandler={this.props.sortHotelhandler} filterType={'price'} />
+          
         </ul>
       </div>
     );
