@@ -22,9 +22,9 @@ export default class Search extends Component {
       startDate: date,
     });
   };
-  /** 
+  /**
    * This would hanldle the end date State coming from Date Pikcer
-  */
+   */
   endDateHandler = (date) => {
     this.setState({
       endDate: date,
@@ -40,11 +40,17 @@ export default class Search extends Component {
       >
         <div className="three-cols">
           <div className="col">
-          <DatePickerComponent selectedDateCallBC={this.startDateHandler} date={startDate} />
+            <DatePickerComponent
+              selectedDateCallBC={this.startDateHandler}
+              date={startDate}
+            />
           </div>
           <div className="col">
-            <DatePickerComponent selectedDateCallBC={this.endDateHandler} date={endDate} />
-            </div>
+            <DatePickerComponent
+              selectedDateCallBC={this.endDateHandler}
+              date={endDate}
+            />
+          </div>
           <Button
             onClick={() => this.props.searchHotelCallBack(startDate, endDate)}
             classStyle={'btn-submit'}

@@ -44,7 +44,10 @@ export default class Sidebar extends Component {
               text={'Search Button'}
             />
             <label htmlFor="price">Price Filter</label>
-            <SliderComponent findHotelByName={this.props.findHotelByName}  ranges={ranges} />
+            <SliderComponent
+              findHotelByName={this.props.findHotelByName}
+              ranges={ranges}
+            />
           </form>
         </div>
       </aside>

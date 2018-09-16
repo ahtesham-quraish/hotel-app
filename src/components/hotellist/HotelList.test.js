@@ -15,5 +15,5 @@ test('Check state of the component is mounted ', async () => {
   const hotelList = await fetchHotelList();
   const wrapper = mount(<HotelList hotelList={hotelList.hotels} />);
   expect(wrapper.prop('hotelList').length).toEqual(hotelList.hotels.length);
-  expect(wrapper.find('li').length).toEqual(hotelList.hotels.length);  
+  expect(wrapper.find('li').length).toEqual(hotelList.hotels.length);
 });

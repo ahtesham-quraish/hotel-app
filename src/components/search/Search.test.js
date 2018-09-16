@@ -8,16 +8,8 @@ import moment from 'moment';
 Enzyme.configure({ adapter: new Adapter() });
 const format = 'YYYY/MM/DD';
 
-// it('render date input correctly with empty value', () => {
-//   const props = {
-//        selected: null
-//       },
-//       DateInputComponent = mount(<DatePicker {...props} />);
-//     expect((DateInputComponent).prop('selected')).toEqual(null);
-// });
-
 it('Simulate Input change ', () => {
-  const  wrapper = mount(<Search />);
+  const wrapper = mount(<Search />);
   const input1 = wrapper.find('input').first();
   input1.simulate('change', {
     target: { value: moment('2017-01-02').format(format) },

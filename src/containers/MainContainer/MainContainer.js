@@ -7,8 +7,7 @@ import { bindActionCreators } from 'redux';
 import { URL } from '../../uls';
 const mapStateToProps = (state, props) => {
   return {
-    hotelList : state.MainContainerState.hotelList
-    
+    hotelList: state.MainContainerState.hotelList,
   };
 };
 const mapDispatchToProps = (dispatch) => ({
@@ -16,9 +15,9 @@ const mapDispatchToProps = (dispatch) => ({
 });
 class MainContainer extends PureComponent {
   componentDidMount = () => {
-      this.props.fetchHotelList(URL);
+    this.props.fetchHotelList(URL);
   };
-  
+
   render() {
     const { hotelList } = this.props;
     return (
@@ -29,4 +28,7 @@ class MainContainer extends PureComponent {
   }
 }
 
-export default connect(mapStateToProps ,mapDispatchToProps)(MainContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(MainContainer);

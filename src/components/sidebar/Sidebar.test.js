@@ -7,8 +7,8 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 Enzyme.configure({ adapter: new Adapter() });
 const Setup = () => {
-    return mount(<Sidebar />);
-}
+  return mount(<Sidebar />);
+};
 it('Simulate Input Change handler', () => {
   const event = {
     target: { value: 'A' },
@@ -28,16 +28,13 @@ it('Check Input is mounted', () => {
 it('Simulate Button click handler ', () => {
   const findHotelByName = jest.fn();
   const wrapper = Setup();
-  wrapper.setProps({findHotelByName : findHotelByName})
+  wrapper.setProps({ findHotelByName: findHotelByName });
   const button = wrapper.find('button').first();
   button.simulate('click');
   expect(findHotelByName).toHaveBeenCalled();
 });
 
-
 it('it simulate the form submission', () => {
   const wrapper = Setup();
   wrapper.find('form').simulate('submit', { preventDefault: jest.fn() });
 });
-
-

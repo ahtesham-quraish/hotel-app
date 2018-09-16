@@ -8,15 +8,18 @@ export default class SortRow extends Component {
       <div className="sort-row">
         <span className="title">Total Nights: {this.props.nights}</span>
         <ul className="btn-list">
-          
-          <ButtonContainer  classStyle={'btn-Sort'}
-              id={'nameId'}
-               sortHotelhandler={this.props.sortHotelhandler} filterType={'name'} />
-          
-          <ButtonContainer  
-               id={'priceId'}
-               sortHotelhandler={this.props.sortHotelhandler} filterType={'price'} />
-          
+          <ButtonContainer
+            classStyle={'btn-Sort'}
+            id={'nameId'}
+            sortHotelhandler={this.props.sortHotelhandler}
+            filterType={'name'}
+          />
+
+          <ButtonContainer
+            id={'priceId'}
+            sortHotelhandler={this.props.sortHotelhandler}
+            filterType={'price'}
+          />
         </ul>
       </div>
     );

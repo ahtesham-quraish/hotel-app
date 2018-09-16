@@ -13,81 +13,84 @@ import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 import MainContainer from './MainContainer';
 import ACTIONS from './actionTypes';
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import fetchMock from 'fetch-mock'
-import fetchHotelListAction from './actions/fetchHotelListAction'; 
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import fetchMock from 'fetch-mock';
+import fetchHotelListAction from './actions/fetchHotelListAction';
 import expect from 'expect';
 import fetchHotelList from '../../../__mocks__/fetchHotels';
-const middlewares = [thunk]
+const middlewares = [thunk];
 import moxios from 'moxios';
-const mockStore = configureMockStore(middlewares)
+const mockStore = configureMockStore(middlewares);
 
-const Setup = (status) =>{
+const Setup = (status) => {
   moxios.wait(() => {
     const request = moxios.requests.mostRecent();
     request.respondWith({
       status: status,
-      response: [{'name': 'Media One Hotel'}],
+      response: [{ name: 'Media One Hotel' }],
     });
   });
-}
+};
 
 it('renders without crashing', async () => {
   const hotelList = await fetchHotelList();
-  const wrapper = shallow(<MainContainer store={configureStore()} hotelList={hotelList.hotels[0]} />);
+  const wrapper = shallow(
+    <MainContainer store={configureStore()} hotelList={hotelList.hotels[0]} />,
+  );
   expect(wrapper).toMatchSnapshot();
 });
 describe('getPosts actions', () => {
-  beforeEach(function () {
+  beforeEach(function() {
     moxios.install();
   });
- it('creates GET_POSTS_SUCCESS after successfuly fetching postse', () => {
-  Setup(200)
-      const expectedActions = [
-     { type: ACTIONS.FETCH_HOTEL_REQUEST },
-     { type: ACTIONS.FETCH_HOTEL_SUCCESS, 
-      response : [{'name': 'Media One Hotel'}]
-     }  
-   ]
-   const store = mockStore({ hotels: [] })
-   return store.dispatch(fetchHotelListAction(URL)).then(() => {
-     expect(store.getActions()).toEqual(expectedActions)
-  })
-})})
+  it('creates GET_POSTS_SUCCESS after successfuly fetching postse', () => {
+    Setup(200);
+    const expectedActions = [
+      { type: ACTIONS.FETCH_HOTEL_REQUEST },
+      {
+        type: ACTIONS.FETCH_HOTEL_SUCCESS,
+        response: [{ name: 'Media One Hotel' }],
+      },
+    ];
+    const store = mockStore({ hotels: [] });
+    return store.dispatch(fetchHotelListAction(URL)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+});
 
 describe('getPosts actions', () => {
-  beforeEach(function () {
+  beforeEach(function() {
     moxios.install();
   });
- it('creates GET_POSTS_SUCCESS after successfuly fetching postse', () => {
-  Setup(400)
+  it('creates GET_POSTS_SUCCESS after successfuly fetching postse', () => {
+    Setup(400);
     const expectedActions = [
-     { type: ACTIONS.FETCH_HOTEL_REQUEST },
-     { type: ACTIONS.FETCH_HOTEL_FAILED, 
-      response : 'error'
-     }  
-   ]
-   const store = mockStore({ hotels: [] })
-   return store.dispatch(fetchHotelListAction('/wrongUrl')).then(() => {
-    expect(store.getActions()).toEqual(expectedActions)
-  })
+      { type: ACTIONS.FETCH_HOTEL_REQUEST },
+      {
+        type: ACTIONS.FETCH_HOTEL_FAILED,
+        response: 'error',
+      },
+    ];
+    const store = mockStore({ hotels: [] });
+    return store.dispatch(fetchHotelListAction('/wrongUrl')).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+  it('should handle ADD_TODO', () => {
+    expect(
+      reducer([], {
+        type: ACTIONS.FETCH_HOTEL_SUCCESS,
+        response: { hotels: [{ name: 'Media One Hotel' }] },
+      }),
+    ).toEqual({
+      hotelList: [{ name: 'Media One Hotel' }],
+    });
+  });
+  it('should return the initial state', () => {
+    expect(reducer(undefined, {})).toEqual({
+      hotelList: [],
+    });
+  });
 });
-it('should handle ADD_TODO', () => {
-  expect(
-    reducer([], {
-      type: ACTIONS.FETCH_HOTEL_SUCCESS,
-      response: {"hotels" :[{'name': 'Media One Hotel'}]}
-    })
-  ).toEqual({
-    "hotelList" : [{'name': 'Media One Hotel'}] 
-  })
-})
-it('should return the initial state', () => {
-  expect(reducer(undefined, {})).toEqual(
-    {
-      "hotelList" : []
-    }
-  )
-})
-})

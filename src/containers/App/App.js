@@ -6,7 +6,6 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import Search from '../../components/search/Search';
 import _ from 'underscore';
 
-
 import {
   validDates,
   filterHotelsByDate,
@@ -23,7 +22,6 @@ class App extends Component {
       filteredHotels: [],
     };
   }
-
 
   /**
    * This method takes two parems, first is on which list
