@@ -17,7 +17,8 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import fetchMock from 'fetch-mock'
 import fetchHotelListAction from './actions/fetchHotelListAction'; 
-import expect from 'expect'
+import expect from 'expect';
+import fetchHotelList from '../../../__mocks__/fetchHotels';
 const middlewares = [thunk]
 import moxios from 'moxios';
 const mockStore = configureMockStore(middlewares)
@@ -31,6 +32,12 @@ const Setup = (status) =>{
     });
   });
 }
+
+it('renders without crashing', async () => {
+  const hotelList = await fetchHotelList();
+  const wrapper = shallow(<MainContainer store={configureStore()} hotelList={hotelList.hotels[0]} />);
+  expect(wrapper).toMatchSnapshot();
+});
 describe('getPosts actions', () => {
   beforeEach(function () {
     moxios.install();
