@@ -14,11 +14,17 @@ export default class Search extends Component {
       endDate: moment('2020-10-20', this.format),
     };
   }
+  /**
+   * This would hanldle the start date State coming from Date Pikcer
+   */
   startDateHandler = (date) => {
     this.setState({
       startDate: date,
     });
   };
+  /** 
+   * This would hanldle the end date State coming from Date Pikcer
+  */
   endDateHandler = (date) => {
     this.setState({
       endDate: date,

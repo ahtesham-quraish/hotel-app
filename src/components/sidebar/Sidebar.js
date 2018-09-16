@@ -11,6 +11,9 @@ export default class Sidebar extends Component {
       hotelName: '',
     };
   }
+  /**
+   * This method is used for input state handler.
+   */
   searchHotelNameStateHandler = (e) => {
     this.setState({ hotelName: e.target.value });
   };
