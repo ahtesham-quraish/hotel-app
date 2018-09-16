@@ -9,7 +9,10 @@ You can find the most recent version of this guide [here](https://github.com/fac
 ## Setup the Code locally.
 
 1 - install node and yarn manager.
+
 2 - Clone repo locally
+
 3 - Run following command -> yarn start (for dev build)
+
 4 - Run following command for Unit test -> yarn test 
 
