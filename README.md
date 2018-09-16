@@ -20,4 +20,4 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 Following is the matric which explain the Unit test cases results matrics.
 
-https://github.com/ahtesham-quraish/hotel-app/issues/1#issue-360617729
+![cmatric](https://user-images.githubusercontent.com/12580995/45594532-c5969780-b9b5-11e8-893a-aa252c0131ba.png)
