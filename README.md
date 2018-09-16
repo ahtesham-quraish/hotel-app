@@ -8,11 +8,13 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ## Setup the Code locally.
 
-1 - install node and yarn manager.
+1 - install node and yarn manager and npm manager.
 
-2 - Clone repo locally
+2 - npm i create-react-app
 
-3 - Run following command -> yarn start (for dev build)
+3 - Clone repo locally
 
-4 - Run following command for Unit test -> yarn test 
+4 - Run following command -> yarn start (for dev build)
+
+5 - Run following command for Unit test -> yarn test 
 
