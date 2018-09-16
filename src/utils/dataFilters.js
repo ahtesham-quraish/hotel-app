@@ -62,3 +62,7 @@ export const findRangeValues = (hotels) => {
     sortedArray.length > 0 ? sortedArray[sortedArray.length - 1].price : 0;
   return { min: min, max: max };
 };
+
+export const  uniqueId = () => {
+  return (Math.random().toString(36) + '00000000000000000').slice(2, 10);
+}

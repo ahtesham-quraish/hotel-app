@@ -22,7 +22,6 @@ const Setup = (hotelList) => {
   return wrapper;
 };
 const runInstanceMethod = (wrapper, method, parem1, parem2) => {
-  console.log(wrapper, method);
   wrapper.instance().searchHotel(parem1, parem2);
 };
 it('renders without crashing', async () => {
