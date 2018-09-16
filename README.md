@@ -10,7 +10,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 1 - install node and yarn manager and npm manager.
 
-2 - Run the following comamand -> npm i create-react-app
+2 - Run the following command -> npm i create-react-app
 
 3 - Clone repo locally
 
