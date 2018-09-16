@@ -8,7 +8,7 @@ Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 ## Setup the Code locally.
-install node and yarn manager and npm manager.\
+install node and yarn manager and npm manager.
 
 1 - Clone repo locally\
 2 - Navigate to root directory of cloned repository\
