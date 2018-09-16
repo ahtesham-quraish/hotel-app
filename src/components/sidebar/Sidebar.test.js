@@ -33,13 +33,7 @@ it('Simulate Button click handler ', () => {
   button.simulate('click');
   expect(findHotelByName).toHaveBeenCalled();
 });
-it('Check setValue', () => {
-  let startDate = moment();
-  const wrapper = Setup();
-  expect(wrapper.state('value')).toBe(0);
-  wrapper.instance().setValue(10);
-  expect(wrapper.state('value')).toBe(10);
-});
+
 
 it('it simulate the form submission', () => {
   const wrapper = Setup();
