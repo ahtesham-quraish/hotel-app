@@ -73,7 +73,7 @@
     "build": "npm run build-css && node scripts/build.js",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "test": "node scripts/test.js --env=jsdom --coverage",
+    "test": "node scripts/test.js --u --env=jsdom --coverage",
     "format": "npm-run-all formatjs formatcss",
     "formatcss": "prettier --parser scss --write 'src/**/*.scss'",
     "formatjs": "prettier --write 'src/**/*.js'"
