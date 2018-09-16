@@ -13,7 +13,7 @@ install node and yarn manager and npm manager.
 1 - Clone repo locally\
 2 - Navigate to root directory of cloned repository\
 3 - Open command line terminal and run the following commands -> npm i create-react-app\
-4 - Run the following command -> yarn add npm-run-all
+4 - Run the following command -> yarn add npm-run-all\
 4 - Run following command -> yarn start (for dev build)\
 5 - Run following command for Unit test -> yarn test
 
