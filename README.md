@@ -8,16 +8,13 @@ Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 ## Setup the Code locally.
+install node and yarn manager and npm manager.\
 
-1 - install node and yarn manager and npm manager.
-
-2 - Run the following command -> npm i create-react-app
-
-3 - Clone repo locally
-
-4 - Run following command -> yarn start (for dev build)
-
-5 - Run following command for Unit test -> yarn test 
+1 - Clone repo locally\
+2 - Navigate to root directory of cloned repository\
+3 - Open command line terminal and run the following commands -> npm i create-react-app\
+4 - Run following command -> yarn start (for dev build)\
+5 - Run following command for Unit test -> yarn test\
 
 Following is the matric which explain the Unit test cases results matrics.
 
