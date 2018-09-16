@@ -1,5 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+[![Build Status](https://travis-ci.org/ahtesham-quraish/hotel-app.svg?branch=master)](https://travis-ci.org/ahtesham-quraish/hotel-app)
 <a href="https://codeclimate.com/github/ahtesham-quraish/hotel-app/maintainability"><img src="https://api.codeclimate.com/v1/badges/419422b8188042f994f2/maintainability" /></a>
 <a href="https://codeclimate.com/github/ahtesham-quraish/hotel-app/test_coverage"><img src="https://api.codeclimate.com/v1/badges/419422b8188042f994f2/test_coverage" /></a>
 
