@@ -8,9 +8,12 @@
     display: inline-block;
     vertical-align: top;
     margin: 0 8px 25px;
-    width: calc(50% - 25px);
+    width: calc(100% - 25px);
     border: 1px solid #ccc;
     padding: 10px; }
+    @media (min-width: 768px) {
+      .card-list li {
+        width: calc(50% - 25px); } }
   .card-list .info {
     line-height: 25px;
     display: block; }

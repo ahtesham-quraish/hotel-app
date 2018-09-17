@@ -17,6 +17,13 @@
     clear: both;
     content: ''; }
   .three-cols .col {
-    padding: 0 8px;
+    padding: 0 0 10px;
     float: left;
-    width: calc(50% - 50px); }
+    width: 100%; }
+    @media (min-width: 768px) {
+      .three-cols .col {
+        padding: 0 8px;
+        width: calc(50% - 50px); } }
+    .three-cols .col .react-datepicker-wrapper,
+    .three-cols .col .react-datepicker__input-container {
+      width: 100%; }

@@ -14,13 +14,13 @@ export default class DatePickerComponent extends Component {
   render() {
     const { date } = this.props;
     return (
-          <div className="col">
+          
             <DatePicker
               selected={date}
               onChange={this.pickDateHandler}
               dateFormat={this.format}
             />
-          </div>
+          
     );
   }
 }
