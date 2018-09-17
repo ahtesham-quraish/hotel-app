@@ -27,6 +27,7 @@ Few Use cases are given below related to Sidebar filters
 
 1 - We first need to select dates from datepicker then click on submit button to filter hotels. Refrence -> (First Step)\
 2 - We can apply name and price filters and both would be applied as '&&', like if we select price range and then hotel name then both would be '&&' and result would be filterd. if we select dates again from datepicker these above two filters would be reset.\
-3 - Sort by name and Sort by price would behave independently from name and price filters.
+3 - Sort by name and Sort by price would behave independently from name and price filters.\
+4 - How will it behave in case of large datasets? For this I used Easy Load library. 
 
    
