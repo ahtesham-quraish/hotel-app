@@ -10,7 +10,7 @@ export default class ButtonContainer extends Component {
           onClick={() => this.props.sortHotelhandler(this.props.filterType)}
           classStyle={'btn-Sort'}
           id={this.props.id}
-          text={'Sort by Name'}
+          text={this.props.text}
         />
       </li>
     );

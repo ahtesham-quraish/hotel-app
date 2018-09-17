@@ -11,7 +11,7 @@ import configureStore from '../../configureStore';
 import Enzyme, { shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
-import MainContainer from './MainContainer';
+import MainContainer, {MainContainer as PureMainContainer} from './MainContainer';
 import ACTIONS from './actionTypes';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -94,5 +94,11 @@ describe('fetchHotels actions', () => {
     expect(reducer(undefined, {})).toEqual({
       hotelList: [],
     });
+  });
+  it('should return the initial state 1', () => {
+    const fetchHotelList = jest.fn();
+    const props = {fetchHotelList}
+    const wrapper = mount(<PureMainContainer hotelList={[]} fetchHotelList={fetchHotelList}/>) 
+    expect(fetchHotelList.mock.calls.length).toBe(1);
   });
 });

@@ -21,7 +21,6 @@ export default class DatePickerComponent extends Component {
               dateFormat={this.format}
             />
           </div>
-    
     );
   }
 }

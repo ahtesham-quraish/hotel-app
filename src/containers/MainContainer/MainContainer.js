@@ -26,8 +26,14 @@ render() {
     );
   }
 }
-
-export default connect(
+//export MainContainer;
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps,
+// )(MainContainer);
+const ReduxComponent = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(MainContainer);
+ 
+export { ReduxComponent as default, MainContainer as MainContainer };

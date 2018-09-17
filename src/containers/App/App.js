@@ -75,9 +75,6 @@ class App extends Component {
       });
     }
   };
-  shouldComponentUpdate = (newProps) => {
-    return this.props.hotels !== newProps.hotels;
-  }
   render() {
     const { hotels, nights, ranges } = this.state;
     return (

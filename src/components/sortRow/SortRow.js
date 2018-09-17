@@ -13,12 +13,14 @@ export default class SortRow extends Component {
             id={'nameId'}
             sortHotelhandler={this.props.sortHotelhandler}
             filterType={'name'}
+            text={'Sort By Name'}
           />
 
           <ButtonContainer
             id={'priceId'}
             sortHotelhandler={this.props.sortHotelhandler}
             filterType={'price'}
+            text={'Sort By Price'}
           />
         </ul>
       </div>
