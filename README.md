@@ -19,4 +19,5 @@ install node and yarn manager and npm manager.
 
 Following is the matric which explain the Unit test cases results matrics.
 
-![cmatric](https://user-images.githubusercontent.com/12580995/45594532-c5969780-b9b5-11e8-893a-aa252c0131ba.png)
+
+![s2](https://user-images.githubusercontent.com/12580995/45630688-96198500-bab2-11e8-9422-c0eb0975518c.png)
