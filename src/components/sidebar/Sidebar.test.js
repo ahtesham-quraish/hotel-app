@@ -26,12 +26,12 @@ it('Check Input is mounted', () => {
 });
 
 it('Simulate Button click handler ', () => {
-  const findHotelByName = jest.fn();
+  const findHotelByNameORPrice = jest.fn();
   const wrapper = Setup();
-  wrapper.setProps({ findHotelByName: findHotelByName });
+  wrapper.setProps({ findHotelByNameORPrice: findHotelByNameORPrice });
   const button = wrapper.find('button').first();
   button.simulate('click');
-  expect(findHotelByName).toHaveBeenCalled();
+  expect(findHotelByNameORPrice).toHaveBeenCalled();
 });
 
 it('it simulate the form submission', () => {

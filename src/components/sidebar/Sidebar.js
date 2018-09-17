@@ -9,14 +9,21 @@ export default class Sidebar extends Component {
     super(props);
     this.state = {
       hotelName: '',
+      value: 0,
     };
   }
+  setValue = (e) => {
+    this.setState({ value: e });
+  };
   /**
    * This method is used for input state handler.
    */
   searchHotelNameStateHandler = (e) => {
     this.setState({ hotelName: e.target.value });
   };
+  clear = () =>{
+    this.setState({hotelName : "", value : 0});
+  }
   render() {
     const { hotelName } = this.state;
     const { ranges } = this.props;
@@ -37,7 +44,7 @@ export default class Sidebar extends Component {
             />
             <Button
               onClick={() =>
-                this.props.findHotelByName('name', this.state.hotelName)
+                this.props.findHotelByNameORPrice('name', this.state.hotelName)
               }
               classStyle={'search-btn'}
               id={'searchByText'}
@@ -45,8 +52,11 @@ export default class Sidebar extends Component {
             />
             <label htmlFor="price">Price Filter</label>
             <SliderComponent
-              findHotelByName={this.props.findHotelByName}
+              findHotelByNameORPrice={this.props.findHotelByNameORPrice}
               ranges={ranges}
+              filters={this.props.filters}
+              onChange={this.setValue}
+              value={this.state.value}
             />
           </form>
         </div>

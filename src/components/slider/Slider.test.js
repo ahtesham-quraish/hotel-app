@@ -10,11 +10,12 @@ const Setup = (props) => {
     return mount(<SliderComponent {...props} />);
 }
 it('Check setValue', () => {
-    const findHotelByName = jest.fn();
-    const props = {findHotelByName};
+    const findHotelByNameORPrice = jest.fn();
+    const onChange = jest.fn();
+    const props = {findHotelByNameORPrice,onChange, "value": 0};
     const wrapper = Setup(props);
-    expect(wrapper.state('value')).toBe(0);
-    wrapper.instance().setValue(10);
+    wrapper.instance().setValue();
     wrapper.instance().onAfterChangeHandler();
-    expect(findHotelByName).toHaveBeenCalled()
+    expect(findHotelByNameORPrice).toHaveBeenCalled()
+    expect(onChange).toHaveBeenCalled()
   });

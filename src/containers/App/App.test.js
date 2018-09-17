@@ -68,14 +68,14 @@ it('Check validDates', async () => {
   expect(validDates(fromDate, endDate)).toBe(false);
 });
 
-it('CHeck findHotelByName', async () => {
+it('CHeck findHotelByNameORPrice', async () => {
   const hotelList = await fetchHotelList();
   const wrapper = Setup(hotelList);
-  wrapper.instance().findHotelByName('name', 'Media One Hotel');
+  wrapper.instance().findHotelByNameORPrice('name', 'Media One Hotel');
   expect(wrapper.state('hotels').length).toBe(1);
-  wrapper.instance().findHotelByName('name', '');
+  wrapper.instance().findHotelByNameORPrice('name', '');
   expect(wrapper.state('hotels').length).toBe(6);
-  wrapper.instance().findHotelByName('price', 1200);
+  wrapper.instance().findHotelByNameORPrice('price', 1200);
   expect(wrapper.state('hotels').length).toBe(6);
   wrapper.unmount();
 });

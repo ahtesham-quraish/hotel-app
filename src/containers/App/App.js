@@ -20,28 +20,43 @@ class App extends Component {
       nights: 0,
       ranges: { min: 0, max: 0 },
       filteredHotels: [],
+      lastFilterdBy : '',
     };
+    this.filterFlag = false;
+    this.filters = {};
   }
+
 
   /**
    * This method takes two parems, first is on which list
    * would be filtered and second would be the value for
    * comparision.
    */
-  findHotelByName = (filterBy, value) => {
-    if (value === '' || value === undefined) {
-      this.setState({ hotels: this.state.filteredHotels });
-      return;
-    }
-    const hotels = this.state.filteredHotels;
-    let filteredHotels = hotels.filter(
+  findHotelByNameORPrice = (filterBy, value) => {
+    this.filterFlag = false;
+    this.setFilter(filterBy, value);
+    const filters = this.filters;
+    let hotels = this.state.filteredHotels;
+    Object.keys(filters).forEach(function (key) {
+      let obj = filters[key];
+      hotels =  this.applyFilters(key, obj, hotels);
+
+    }.bind(this));
+    this.setState({hotels : hotels});
+  };
+
+  /**
+   * Apply filter and return the output array
+   */
+  applyFilters = (filterBy, value , hotels) => {
+     let filteredHotels = hotels.filter(
       (hotel) =>
         filterBy === 'name'
-          ? hotel[filterBy] === value
+          ? value !== "" ? hotel[filterBy] === value : true
           : hotel[filterBy] <= value,
     );
-    this.setState({ hotels: filteredHotels });
-  };
+    return filteredHotels;
+  }
 
   /**
    * This method would sort the list on the basis of given Key.
@@ -51,13 +66,21 @@ class App extends Component {
     let sortedArr = _.sortBy(hotels, (o) => o[sortBYKey]);
     this.setState({ hotels: sortedArr });
   };
-
+  setFilter = (key, value) => {
+    let filters = this.filters;
+    filters[key] = value;
+    this.filters = filters;
+    //this.setState({filters : filters});
+  } 
   /**
    * This method would require start date and end date to filter
    * hotel list. It would first validate the start and end dates.
    */
   searchHotel = (startDate, endDate) => {
     let hotels = _.map(this.props.hotelList, _.clone);
+
+    // this.setFilter('startDate', startDate);
+    // this.setFilter('endDate', endDate);
     let nights = endDate.diff(startDate, 'days');
     if (validDates(startDate, endDate)) {
       const filteredHotels = filterHotelsByDate(
@@ -67,6 +90,7 @@ class App extends Component {
         nights,
       );
       const ranges = findRangeValues(filteredHotels);
+      this.sidebar.clear();
       this.setState({
         filteredHotels: filteredHotels,
         hotels: filteredHotels,
@@ -81,7 +105,7 @@ class App extends Component {
       <div className="App">
         <Search searchHotelCallBack={this.searchHotel} />
         <div className="content-holder">
-          <Sidebar ranges={ranges} findHotelByName={this.findHotelByName} />
+          <Sidebar ref={(ref) => {this.sidebar = ref}} filterFlag={this.filterFlag} ranges={ranges} findHotelByNameORPrice={this.findHotelByNameORPrice} />
           <div id="content">
             <SortRow nights={nights} sortHotelhandler={this.sortHotelhandler} />
             <HotelList hotelList={hotels} />
