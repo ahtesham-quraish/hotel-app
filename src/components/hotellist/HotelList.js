@@ -7,7 +7,7 @@ class HotelList extends Component  {
   renderList = () =>{
     const { hotelList } = this.props;
     const list = hotelList.map((hotel, index) => (
-      <LazyLoad  key={index} offset={[-100, 0]}>
+      <LazyLoad  key={index} height={80} offset={[-100, 0]}>
         <Hotel key={uniqueId()} hotel={hotel} />
       </LazyLoad>
     ));

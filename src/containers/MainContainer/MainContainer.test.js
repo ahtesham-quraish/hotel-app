@@ -11,7 +11,7 @@ import configureStore from '../../configureStore';
 import Enzyme, { shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
-import MainContainer, {testMainContainer as PureMainContainer} from './MainContainer';
+import MainContainer, {PureMainContainer} from './MainContainer';
 import ACTIONS from './actionTypes';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';

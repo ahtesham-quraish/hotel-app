@@ -36,4 +36,4 @@ const ReduxComponent = connect(
   mapDispatchToProps,
 )(MainContainer);
  
-export { ReduxComponent as default, MainContainer as testMainContainer };
+export { ReduxComponent as default, MainContainer as PureMainContainer };
