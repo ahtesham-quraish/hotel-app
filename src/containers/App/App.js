@@ -37,11 +37,11 @@ class App extends Component {
     this.setFilter(filterBy, value);
     const filters = this.filters;
     let hotels = this.state.filteredHotels;
-    Object.keys(filters).forEach(function (key) {
-      let obj = filters[key];
-      hotels =  this.applyFilters(key, obj, hotels);
-
-    }.bind(this));
+    [].concat(...Object.entries(filters).map(([k, v]) => {
+      hotels =  this.applyFilters(k, v, hotels);
+      return true;
+     
+    }))
     this.setState({hotels : hotels});
   };
 
