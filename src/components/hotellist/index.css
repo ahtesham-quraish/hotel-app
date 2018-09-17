@@ -3,16 +3,19 @@
   margin: 0 -8px;
   padding: 25px 0 0;
   letter-spacing: -.32em; }
-  .card-list li {
+  .card-list li,
+  .card-list .lazyload-placeholder {
     letter-spacing: normal;
     display: inline-block;
     vertical-align: top;
     margin: 0 8px 25px;
     width: calc(100% - 25px);
     border: 1px solid #ccc;
-    padding: 10px; }
+    padding: 10px;
+    min-height: 80px; }
     @media (min-width: 768px) {
-      .card-list li {
+      .card-list li,
+      .card-list .lazyload-placeholder {
         width: calc(50% - 25px); } }
   .card-list .info {
     line-height: 25px;

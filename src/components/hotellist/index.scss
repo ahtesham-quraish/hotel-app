@@ -5,7 +5,8 @@
     margin: 0 -8px;
     padding: 25px 0 0;
     letter-spacing: -.32em;
-    li {
+    li,
+    .lazyload-placeholder {
       letter-spacing: normal;
       display: inline-block;
       vertical-align: top;
@@ -13,9 +14,10 @@
       width: calc(100% - 25px);
       border: 1px solid #ccc;
       padding: 10px;
-    @include media('≥tablet') {
-      width: calc(50% - 25px);
-    }
+      min-height: 80px;
+      @include media('≥tablet') {
+        width: calc(50% - 25px);
+      }
     }
     .info {
       line-height: 25px;

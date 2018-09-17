@@ -1,5 +1,4 @@
 import ACTIONS from './actionTypes';
-
 const initialChatState = {
   hotelList: [],
 };
