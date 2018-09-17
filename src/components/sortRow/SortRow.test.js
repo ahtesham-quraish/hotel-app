@@ -22,4 +22,4 @@ it('check the Click button handler ', () => {
   const button2 = wrapper.find('button').last();
   button2.simulate('click');
   expect(sortHotelhandler.mock.calls.length).toBe(2);
- });
+});

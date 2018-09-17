@@ -13,26 +13,25 @@ export default class SliderComponent extends Component {
     this.props.onChange(e);
   };
   onAfterChangeHandler = () => {
-    this.props.findHotelByNameORPrice('price', this.props.value)
-  }
+    this.props.findHotelByNameORPrice('price', this.props.value);
+  };
   render() {
     const { min, max } = this.props.ranges;
     return (
-        <div id="sidebar">
-            <Slider
-              id={'id-1'}
-              handle={CustomHandle}
-              min={min}
-              max={max}
-              value={this.props.value}
-              onChange={this.setValue}
-              onAfterChange={this.onAfterChangeHandler}
-            />
-        </div>
+      <div id="sidebar">
+        <Slider
+          id={'id-1'}
+          handle={CustomHandle}
+          min={min}
+          max={max}
+          value={this.props.value}
+          onChange={this.setValue}
+          onAfterChange={this.onAfterChangeHandler}
+        />
+      </div>
     );
   }
 }
 SliderComponent.defaultProps = {
   ranges: { min: 0, max: 0 },
 };
-

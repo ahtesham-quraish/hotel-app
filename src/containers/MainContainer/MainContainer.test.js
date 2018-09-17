@@ -11,7 +11,7 @@ import configureStore from '../../configureStore';
 import Enzyme, { shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
-import MainContainer, {PureMainContainer} from './MainContainer';
+import MainContainer, { PureMainContainer } from './MainContainer';
 import ACTIONS from './actionTypes';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -32,11 +32,11 @@ const Setup = (status) => {
     });
   });
 };
-const componentSetup = (hotelList) =>{
+const componentSetup = (hotelList) => {
   return shallow(
     <MainContainer store={configureStore()} hotelList={hotelList.hotels[0]} />,
   );
-  }
+};
 it('renders without crashing', async () => {
   const hotelList = await fetchHotelList();
   const wrapper = componentSetup(hotelList);
@@ -95,10 +95,12 @@ describe('fetchHotels actions', () => {
       hotelList: [],
     });
   });
-  it('should return the initial state 1', () => {
+  it('Call fetchHotelList method', () => {
     const fetchHotelList = jest.fn();
-    const props = {fetchHotelList}
-    const wrapper = mount(<PureMainContainer hotelList={[]} fetchHotelList={fetchHotelList}/>) 
+    const props = { fetchHotelList };
+    const wrapper = mount(
+      <PureMainContainer hotelList={[]} fetchHotelList={fetchHotelList} />,
+    );
     expect(fetchHotelList.mock.calls.length).toBe(1);
   });
 });

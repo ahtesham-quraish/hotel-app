@@ -21,9 +21,12 @@ export default class Sidebar extends Component {
   searchHotelNameStateHandler = (e) => {
     this.setState({ hotelName: e.target.value });
   };
-  clear = () =>{
-    this.setState({hotelName : "", value : 0});
-  }
+  /*
+   Reste Sidebar State.
+  */
+  clear = () => {
+    this.setState({ hotelName: '', value: 0 });
+  };
   render() {
     const { hotelName } = this.state;
     const { ranges } = this.props;

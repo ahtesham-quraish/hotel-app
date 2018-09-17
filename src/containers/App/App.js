@@ -20,12 +20,11 @@ class App extends Component {
       nights: 0,
       ranges: { min: 0, max: 0 },
       filteredHotels: [],
-      lastFilterdBy : '',
+      lastFilterdBy: '',
     };
     this.filterFlag = false;
     this.filters = {};
   }
-
 
   /**
    * This method takes two parems, first is on which list
@@ -37,26 +36,29 @@ class App extends Component {
     this.setFilter(filterBy, value);
     const filters = this.filters;
     let hotels = this.state.filteredHotels;
-    [].concat(...Object.entries(filters).map(([k, v]) => {
-      hotels =  this.applyFilters(k, v, hotels);
-      return true;
-     
-    }))
-    this.setState({hotels : hotels});
+    [].concat(
+      ...Object.entries(filters).map(([k, v]) => {
+        hotels = this.applyFilters(k, v, hotels);
+        return true;
+      }),
+    );
+    this.setState({ hotels: hotels });
   };
 
   /**
    * Apply filter and return the output array
    */
-  applyFilters = (filterBy, value , hotels) => {
-     let filteredHotels = hotels.filter(
+  applyFilters = (filterBy, value, hotels) => {
+    let filteredHotels = hotels.filter(
       (hotel) =>
         filterBy === 'name'
-          ? value !== "" ? hotel[filterBy] === value : true
+          ? value !== ''
+            ? hotel[filterBy] === value
+            : true
           : hotel[filterBy] <= value,
     );
     return filteredHotels;
-  }
+  };
 
   /**
    * This method would sort the list on the basis of given Key.
@@ -71,7 +73,7 @@ class App extends Component {
     filters[key] = value;
     this.filters = filters;
     //this.setState({filters : filters});
-  } 
+  };
   /**
    * This method would require start date and end date to filter
    * hotel list. It would first validate the start and end dates.
@@ -105,7 +107,14 @@ class App extends Component {
       <div className="App">
         <Search searchHotelCallBack={this.searchHotel} />
         <div className="content-holder">
-          <Sidebar ref={(ref) => {this.sidebar = ref}} filterFlag={this.filterFlag} ranges={ranges} findHotelByNameORPrice={this.findHotelByNameORPrice} />
+          <Sidebar
+            ref={(ref) => {
+              this.sidebar = ref;
+            }}
+            filterFlag={this.filterFlag}
+            ranges={ranges}
+            findHotelByNameORPrice={this.findHotelByNameORPrice}
+          />
           <div id="content">
             <SortRow nights={nights} sortHotelhandler={this.sortHotelhandler} />
             <HotelList hotelList={hotels} />
